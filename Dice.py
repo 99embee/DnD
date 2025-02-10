@@ -16,12 +16,9 @@ class Dice:
 
     def roll(self, times):
         total = 0
-        rolls = ""
+        rolls = []
         for _ in range(times):
             num = random.randint(1, self.sides)
             total += num
-            if times > 1:
-                rolls += str(num) + ","
-            else:
-                rolls += str(num)
+            rolls.append(str(num))
         return total, rolls

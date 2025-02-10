@@ -17,41 +17,50 @@ class DnDApp:
         self.create_widgets()
 
     def create_widgets(self):
-        self.d4_edit = tk.Entry(self.root)
-        self.d4_edit.pack(pady=10)
-        self.d4_button = tk.Button(self.root, text="Roll D4", command=lambda:self.roll_dice(self.D4, int(self.d4_edit.get())))
-        self.d4_button.pack(pady=10)
-        self.d4_label = tk.Label(self.root, text="")
-        self.d4_label.pack(pady=10)
+        # self.d4_edit = tk.Entry(self.root)
+        # self.d4_edit.pack(pady=5)
+        # self.d4_button = tk.Button(self.root, text="Roll D4", command=lambda:self.roll_dice(self.D4, int(self.d4_edit.get())))
+        # self.d4_button.pack(pady=5)
+        # self.d4_label = tk.Label(self.root, text="")
+        # self.d4_label.pack(pady=5)
 
-        self.d6_edit = tk.Entry(self.root)
-        self.d6_edit.pack(pady=10)
-        self.d6_button = tk.Button(self.root, text="Roll D6", command=lambda:self.roll_dice(self.D6, int(self.d6_edit.get() )))
-        self.d6_button.pack(pady=10)
-        self.d6_label = tk.Label(self.root, text="")
-        self.d6_label.pack(pady=10)
+        # self.d6_edit = tk.Entry(self.root)
+        # self.d6_edit.pack(pady=5)
+        # self.d6_button = tk.Button(self.root, text="Roll D6", command=lambda:self.roll_dice(self.D6, int(self.d6_edit.get() )))
+        # self.d6_button.pack(pady=5)
+        # self.d6_label = tk.Label(self.root, text="")
+        # self.d6_label.pack(pady=5)
 
-        self.d8_edit = tk.Entry(self.root)
-        self.d8_edit.pack(pady=10)
-        self.d8_button = tk.Button(self.root, text="Roll D8", command=lambda:self.roll_dice(self.D8, int(self.d8_edit.get() )))
-        self.d8_button.pack(pady=10)
-        self.d8_label = tk.Label(self.root, text="")
-        self.d8_label.pack(pady=10)
+        # self.d8_edit = tk.Entry(self.root)
+        # self.d8_edit.pack(pady=5)
+        # self.d8_button = tk.Button(self.root, text="Roll D8", command=lambda:self.roll_dice(self.D8, int(self.d8_edit.get() )))
+        # self.d8_button.pack(pady=5)
+        # self.d8_label = tk.Label(self.root, text="")
+        # self.d8_label.pack(pady=5)
 
-        self.d10_edit = tk.Entry(self.root)
-        self.d10_edit.pack(pady=10)
-        self.d10_button = tk.Button(self.root, text="Roll D10", command=lambda:self.roll_dice(self.D10, int(self.d10_edit.get())) )
-        self.d10_button.pack(pady=10)
-        self.d10_label = tk.Label(self.root, text="")
-        self.d10_label.pack(pady=10)
+        # self.d10_edit = tk.Entry(self.root)
+        # self.d10_edit.pack(pady=5)
+        # self.d10_button = tk.Button(self.root, text="Roll D10", command=lambda:self.roll_dice(self.D10, int(self.d10_edit.get())) )
+        # self.d10_button.pack(pady=5)
+        # self.d10_label = tk.Label(self.root, text="")
+        # self.d10_label.pack(pady=5)
 
-        self.d20_edit = tk.Entry(self.root)
-        self.d20_edit.pack(pady=10)
-        self.d20_button = tk.Button(self.root, text="Roll D20", command=lambda:self.roll_dice(self.D20,  int(self.d20_edit.get()) ))
-        self.d20_button.pack(pady=10)
-        self.d20_label = tk.Label(self.root, text="")
-        self.d20_label.pack(pady=10)
+        # self.d20_edit = tk.Entry(self.root)
+        # self.d20_edit.pack(pady=5)
+        # self.d20_button = tk.Button(self.root, text="Roll D20", command=lambda:self.roll_dice(self.D20,  int(self.d20_edit.get()) ))
+        # self.d20_button.pack(pady=5)
+        # self.d20_label = tk.Label(self.root, text="")
+        # self.d20_label.pack(pady=5)
 
+        self.weapon_check = tk.Checkbutton(self.root, text="Sword", variable=self.D6, onvalue=self.D6)
+        self.weapon_check.pack(pady=5)
+        self.attack_btn = tk.Button(self.root, text="Attack", command=lambda:self.attack(self.D20, self.weapon_check.cget("variable"), True, False))
+        self.attack_btn.pack(pady=5)
+        self.attack_lbl = tk.Label(self.root, text="")
+        self.attack_lbl.pack(pady=5)
+
+        self.test_lbl = tk.Label(self.root, text="")
+        self.test_lbl.pack(pady=5)
 
         # self.map_button = tk.Button(self.root, text="Show Map", command=self.show_map)
         # self.map_button.pack(pady=10)
@@ -79,14 +88,37 @@ class DnDApp:
 
         create_button = tk.Button(new_window, text="Create", command=lambda: self.save_character(new_window, name_entry.get(), race_entry.get(), class_entry.get()))
         create_button.pack(pady=10)
-
     def save_character(self, window, name, race, char_class):
         # Here you can add the logic to save the character
         print(f"Character Created: {name}, {race}, {char_class}")
         messagebox.showinfo("Character Created", f"Character Created: {name}, {race}, {char_class}")
         window.destroy()
 
-
+    def attack(self, dice, attackDice, advantage, disadvantage=False):
+        if advantage|disadvantage:
+            result, rolls = dice.roll(2)
+            # rolls = rolls.split(",")
+            if advantage:
+                if rolls[0] > rolls[1]:
+                    result = rolls[0]
+                else:
+                    result = rolls[1]
+            else:
+                if rolls[0] < rolls[1]:
+                    result = rolls[0]
+                else:
+                    result = rolls[1]
+        else:
+            result, rolls = dice.roll(1)
+        result = int(result)
+        # self.test_lbl.config(text=f"result: {rolls if len(rolls) != 1 else ""} {result}")
+        if result == 20:
+            self.attack_lbl.config(text=f"Critical Hit: {rolls if len(rolls) != 1 else ""} {result}") 
+        elif result == 1:
+            self.attack_lbl.config(text=f"Critical Miss: {rolls if len(rolls) != 1 else ""} {result}") 
+        else:
+            self.attack_lbl.config(text=f"To Hit: {advantage}, {rolls if len(rolls) != 1 else ""} {result}") 
+        
 
     def roll_dice(self, dice, times):  
         result, rolls = dice.roll(times)
