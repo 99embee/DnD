@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import messagebox
-import random
+# from tkinter.ttk import *
 
 from Dice import Dice
 
@@ -8,13 +7,21 @@ class DnDApp:
     def __init__(self, root):
         self.root = root
         self.root.title("DnD Game")
-
+        
         self.D4 = Dice(4)
         self.D6 = Dice(6)
         self.D8 = Dice(8)
         self.D10 = Dice(10)
         self.D20 = Dice(20)
         self.create_widgets()
+
+    def create_dice(self, dice):
+        diceArray = dice.split("d")
+        rightDice = Dice(int(diceArray[1]))
+        leftDice = int(diceArray[0])
+        damage, damageRolls = rightDice.roll(leftDice)
+        print(damage, damageRolls)
+        return damage, damageRolls
 
     def create_widgets(self):
         # self.d4_edit = tk.Entry(self.root)
@@ -51,10 +58,19 @@ class DnDApp:
         # self.d20_button.pack(pady=5)
         # self.d20_label = tk.Label(self.root, text="")
         # self.d20_label.pack(pady=5)
+        
 
-        self.weapon_check = tk.Checkbutton(self.root, text="Sword", variable=self.D6, onvalue=self.D6)
-        self.weapon_check.pack(pady=5)
-        self.attack_btn = tk.Button(self.root, text="Attack", command=lambda:self.attack(self.D20, self.weapon_check.cget("variable"), True, False))
+        
+        weapons = [("Sword", "1d6"), ("Dagger", "1d4"), ("Axe", "1d8"), ("Mace", "1d10"), ("Greatsword", "2d6"), ("Greataxe", "1d12"), ("Greatclub", "1d8")] 
+        # print(weapons)
+
+       
+        selected_dice = tk.StringVar(value=weapons[0][1])
+
+
+        for (weapon, dice) in weapons:
+            tk.Radiobutton(self.root, text=weapon, variable=selected_dice, value=dice).pack(anchor=tk.W)
+        self.attack_btn = tk.Button(self.root, text="Attack", command=lambda:self.attack(self.D20, selected_dice.get(), True, False))
         self.attack_btn.pack(pady=5)
         self.attack_lbl = tk.Label(self.root, text="")
         self.attack_lbl.pack(pady=5)
@@ -86,6 +102,12 @@ class DnDApp:
         class_entry = tk.Entry(new_window)
         class_entry.pack(pady=5)
 
+        ability_label = tk.Label(new_window, text="Ability Scores:")
+        ability_label.pack(pady=5)
+        ability_frame = tk.Frame(new_window)
+        ability_frame.pack(pady=5)
+
+
         create_button = tk.Button(new_window, text="Create", command=lambda: self.save_character(new_window, name_entry.get(), race_entry.get(), class_entry.get()))
         create_button.pack(pady=10)
     def save_character(self, window, name, race, char_class):
@@ -94,49 +116,51 @@ class DnDApp:
         messagebox.showinfo("Character Created", f"Character Created: {name}, {race}, {char_class}")
         window.destroy()
 
-    def attack(self, dice, attackDice, advantage, disadvantage=False):
+    def attack(self, dice, attackDice, advantage, disadvantage):
         if advantage|disadvantage:
             result, rolls = dice.roll(2)
-            # rolls = rolls.split(",")
             if advantage:
-                if rolls[0] > rolls[1]:
-                    result = rolls[0]
-                else:
-                    result = rolls[1]
+                print(rolls)
+                print(max(rolls))
+                result = max(rolls)
+                print(result)
             else:
-                if rolls[0] < rolls[1]:
-                    result = rolls[0]
-                else:
-                    result = rolls[1]
+                result = min(int(rolls))
         else:
             result, rolls = dice.roll(1)
         result = int(result)
-        # self.test_lbl.config(text=f"result: {rolls if len(rolls) != 1 else ""} {result}")
         if result == 20:
             self.attack_lbl.config(text=f"Critical Hit: {rolls if len(rolls) != 1 else ""} {result}") 
         elif result == 1:
             self.attack_lbl.config(text=f"Critical Miss: {rolls if len(rolls) != 1 else ""} {result}") 
         else:
             self.attack_lbl.config(text=f"To Hit: {advantage}, {rolls if len(rolls) != 1 else ""} {result}") 
+
+        # print(attackDice)
+        damage, damageRolls = self.create_dice(attackDice)
+        self.damage_lbl = tk.Label(self.root, text=f"Damage dealt: {damageRolls if len(damageRolls) != 1 else ""} {damage}").pack(pady=5)       
         
 
-    def roll_dice(self, dice, times):  
-        result, rolls = dice.roll(times)
-        if dice == self.D4:
-            self.d4_label.config(text=f"Result: {rolls} = {result}")
-        elif dice == self.D6:
-            self.d6_label.config(text=f"Result: {rolls} = {result}")
-        elif dice == self.D8:
-            self.d8_label.config(text=f"Result: {rolls} = {result}")
-        elif dice == self.D10:
-            self.d10_label.config(text=f"Result: {rolls} = {result}")
-        elif dice == self.D20:
-            self.d20_label.config(text=f"Result: {rolls} = {result}")
-
-    def show_map(self):
-        messagebox.showinfo("Map", "Interactive map will be displayed here.")
+    # def roll_dice(self, dice, times):  
+    #     result, rolls = dice.roll(times)
+    #     if dice == self.D4:
+    #         self.d4_label.config(text=f"Result: {rolls} = {result}")
+    #     elif dice == self.D6:
+    #         self.d6_label.config(text=f"Result: {rolls} = {result}")
+    #     elif dice == self.D8:
+    #         self.d8_label.config(text=f"Result: {rolls} = {result}")
+    #     elif dice == self.D10:
+    #         self.d10_label.config(text=f"Result: {rolls} = {result}")
+    #     elif dice == self.D20:
+    #         self.d20_label.config(text=f"Result: {rolls} = {result}")
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root.geometry("400x400")
+ 
+    # set minimum window size value
+    root.minsize(400, 400)
+
     app = DnDApp(root)
+
     root.mainloop()

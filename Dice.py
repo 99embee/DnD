@@ -20,5 +20,5 @@ class Dice:
         for _ in range(times):
             num = random.randint(1, self.sides)
             total += num
-            rolls.append(str(num))
+            rolls.append(num)
         return total, rolls
