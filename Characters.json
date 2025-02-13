@@ -1,0 +1,2039 @@
+[
+    {
+        "Ref": "1-pp",
+        "Player": {
+            "Attributes": {
+                "ID": 1,
+                "Name": "pp",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "p",
+                "Class": "p",
+                "Health": 5,
+                "Abilities": {
+                    "Strength": 9,
+                    "Dexterity": 8,
+                    "Constitution": 11,
+                    "Intelligence": 11,
+                    "Wisdom": 12,
+                    "Charisma": 7
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "2-o",
+        "Player": {
+            "Attributes": {
+                "ID": 2,
+                "Name": "o",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "o",
+                "Class": "o",
+                "Health": 7,
+                "Abilities": {
+                    "Strength": 8,
+                    "Dexterity": 4,
+                    "Constitution": 11,
+                    "Intelligence": 14,
+                    "Wisdom": 8,
+                    "Charisma": 15
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "3-i",
+        "Player": {
+            "Attributes": {
+                "ID": 3,
+                "Name": "i",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "i",
+                "Class": "i",
+                "Health": 8,
+                "Abilities": {
+                    "Strength": 9,
+                    "Dexterity": 10,
+                    "Constitution": 15,
+                    "Intelligence": 8,
+                    "Wisdom": 11,
+                    "Charisma": 7
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "4-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 4,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 7,
+                "Abilities": {
+                    "Strength": 9,
+                    "Dexterity": 14,
+                    "Constitution": 9,
+                    "Intelligence": 10,
+                    "Wisdom": 9,
+                    "Charisma": [
+                        10,
+                        [
+                            4,
+                            9,
+                            10
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "5-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 5,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 5,
+                "Abilities": {
+                    "Strength": 9,
+                    "Dexterity": 7,
+                    "Constitution": 6,
+                    "Intelligence": 8,
+                    "Wisdom": 7,
+                    "Charisma": [
+                        7,
+                        [
+                            3,
+                            6,
+                            7
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "6-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 6,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 6,
+                "Abilities": {
+                    "Strength": 9,
+                    "Dexterity": 8,
+                    "Constitution": 6,
+                    "Intelligence": 12,
+                    "Wisdom": 9,
+                    "Charisma": [
+                        10,
+                        [
+                            4,
+                            9,
+                            10
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "7-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 7,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 1,
+                "Abilities": {
+                    "Strength": 6,
+                    "Dexterity": 13,
+                    "Constitution": 14,
+                    "Intelligence": 10,
+                    "Wisdom": 9,
+                    "Charisma": [
+                        10,
+                        [
+                            6,
+                            7,
+                            10
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "8-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 8,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 7,
+                "Abilities": {
+                    "Strength": 11,
+                    "Dexterity": 12,
+                    "Constitution": 10,
+                    "Intelligence": 6,
+                    "Wisdom": 15,
+                    "Charisma": [
+                        12,
+                        [
+                            5,
+                            10,
+                            12
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "9-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 9,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 2,
+                "Abilities": {
+                    "Strength": 4,
+                    "Dexterity": 13,
+                    "Constitution": 7,
+                    "Intelligence": 6,
+                    "Wisdom": 14,
+                    "Charisma": [
+                        15,
+                        [
+                            5,
+                            11,
+                            15
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "10-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 10,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 8,
+                "Abilities": {
+                    "Strength": 11,
+                    "Dexterity": 12,
+                    "Constitution": 11,
+                    "Intelligence": 11,
+                    "Wisdom": 7,
+                    "Charisma": [
+                        13,
+                        [
+                            6,
+                            9,
+                            13
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "11-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 11,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 8,
+                "Abilities": {
+                    "Strength": 15,
+                    "Dexterity": 9,
+                    "Constitution": 17,
+                    "Intelligence": 5,
+                    "Wisdom": 13,
+                    "Charisma": [
+                        16,
+                        [
+                            5,
+                            10,
+                            16
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "12-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 12,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 3,
+                "Abilities": {
+                    "Strength": 8,
+                    "Dexterity": 13,
+                    "Constitution": 10,
+                    "Intelligence": 9,
+                    "Wisdom": 5,
+                    "Charisma": [
+                        16,
+                        [
+                            6,
+                            11,
+                            16
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "13-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 13,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 6,
+                "Abilities": {
+                    "Strength": 10,
+                    "Dexterity": 8,
+                    "Constitution": 5,
+                    "Intelligence": 13,
+                    "Wisdom": 12,
+                    "Charisma": [
+                        14,
+                        [
+                            6,
+                            12,
+                            14
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "14-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 14,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 6,
+                "Abilities": {
+                    "Strength": 10,
+                    "Dexterity": 17,
+                    "Constitution": 9,
+                    "Intelligence": 12,
+                    "Wisdom": 8,
+                    "Charisma": [
+                        11,
+                        [
+                            6,
+                            7,
+                            11
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "15-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 15,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 6,
+                "Abilities": {
+                    "Strength": 8,
+                    "Dexterity": 12,
+                    "Constitution": 10,
+                    "Intelligence": 11,
+                    "Wisdom": 9,
+                    "Charisma": [
+                        12,
+                        [
+                            3,
+                            9,
+                            12
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "16-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 16,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 4,
+                "Abilities": {
+                    "Strength": 13,
+                    "Dexterity": 13,
+                    "Constitution": 16,
+                    "Intelligence": 9,
+                    "Wisdom": 13,
+                    "Charisma": [
+                        14,
+                        [
+                            6,
+                            10,
+                            14
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "17-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 17,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 7,
+                "Abilities": {
+                    "Strength": 12,
+                    "Dexterity": 11,
+                    "Constitution": 9,
+                    "Intelligence": 8,
+                    "Wisdom": 13,
+                    "Charisma": [
+                        6,
+                        [
+                            3,
+                            4,
+                            6
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "18-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 18,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 4,
+                "Abilities": {
+                    "Strength": 9,
+                    "Dexterity": 13,
+                    "Constitution": 4,
+                    "Intelligence": 11,
+                    "Wisdom": 7,
+                    "Charisma": [
+                        18,
+                        [
+                            6,
+                            12,
+                            18
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "19-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 19,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 5,
+                "Abilities": {
+                    "Strength": 15,
+                    "Dexterity": 11,
+                    "Constitution": 8,
+                    "Intelligence": 7,
+                    "Wisdom": 15,
+                    "Charisma": [
+                        11,
+                        [
+                            3,
+                            5,
+                            11
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "20-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 20,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 1,
+                "Abilities": {
+                    "Strength": 14,
+                    "Dexterity": 5,
+                    "Constitution": 14,
+                    "Intelligence": 12,
+                    "Wisdom": 11,
+                    "Charisma": [
+                        8,
+                        [
+                            1,
+                            5,
+                            8
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "21-Goblin",
+        "Mob": {
+            "Attributes": {
+                "ID": 21,
+                "Name": "Goblin",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Goblin",
+                "Class": "Warrior",
+                "Health": 2,
+                "Abilities": {
+                    "Strength": 12,
+                    "Dexterity": 13,
+                    "Constitution": 11,
+                    "Intelligence": 14,
+                    "Wisdom": 8,
+                    "Charisma": [
+                        7,
+                        [
+                            3,
+                            4,
+                            7
+                        ]
+                    ]
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": [],
+                "Weapons": [],
+                "Equipped Armour": [],
+                "Armour": [],
+                "Items": []
+            }
+        }
+    }
+]

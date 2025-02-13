@@ -1,0 +1,8 @@
+testing:
+create character (/)
+    - 1st character (/)
+    - 2nd character (/)
+    - 3rd character (/)
+load character
+    - 1st character (/)
+    - 2nd character ()
