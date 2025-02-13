@@ -1,7 +1,9 @@
 import json
 
 class Character:
-    def __init__(self, Role, Name, Level, Eperience, Race, Class, Health, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma):
+    def __init__(self, ID, Role, Name, Level, Eperience, Race, Class, Health, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma):
+        
+        self.ID = ID
         self.Role = Role
         self.Name = Name
         self.Level = Level
@@ -16,6 +18,7 @@ class Character:
         self.Wisdom = Wisdom
         self.Charisma = Charisma
 
+
     # def isJsonEmpty(Json):
     #     try:
     #         with open(Json, 'r', encoding='utf-8') as f:
@@ -25,15 +28,18 @@ class Character:
     #         return True
 
     def checkUnique(self):
+        print(self)
         try:
             with open('Characters.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 # print('Data loaded from JSON:', data)
-                # for i, player in data:
-                for i in range(0, len(data)):
-                    # print('Player data:', data[i])
-                    # print('data---------- ', data[i]['Player']['Attributes']['Name'])
-                    if data[i]['Player']['Attributes']['Name'] == self.Name and data[i]['Player']['Attributes']['Race'] == self.Race and data[i]['Player']['Attributes']['Class'] == self.Class:
+                role = self.Role
+                # print('self.Role = ',role)
+                # print(len(data))
+                for i in range(1, len(data)):
+                    # print(data[i])
+                    # print(role)
+                    if data[i][role]['Attributes']['Name'] == self.Name and data[i][role]['Attributes']['Race'] == self.Race and data[i][role]['Attributes']['Class'] == self.Class:
                         return False
                 return True
         except (FileNotFoundError, json.JSONDecodeError):
@@ -43,12 +49,13 @@ class Character:
         try:
             with open('Characters.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                self.id = data[-1][self.Role]['Attributes']['ID'] + 1
+                role = data[-1]['Role']
+                self.id = data[-1][role]['Attributes']['ID'] + 1
         except (FileNotFoundError, json.JSONDecodeError):
             data = []
             self.id = 1
 
-        player = {'Ref' : str(self.id) + '-'+self.Name, self.Role: 
+        player = {'Ref' : str(self.id) + '-'+self.Name, 'Role': self.Role, self.Role: 
                     { 'Attributes':
                         {'ID' : self.id, 'Name' : self.Name, 'Level' : self.Level, 'Experience': self.Experience, 'Race' : self.Race,
                         'Class' : self.Class, 'Health' : self.Health, 
@@ -71,7 +78,7 @@ class Character:
                         'Inventory' : 
                         {'Coins': 
                             {'Platinum': 0, 'Gold' : 0, 'Silver': 0, 'Copper': 0},
-                        'Equipped Weapon': [],'Weapons' : [], 'Equipped Armour' : [], 'Armour' : [], 'Items' : [] }
+                        'Equipped Weapon': {},'Weapons' : [], 'Equipped Armour' : {}, 'Armour' : [], 'Items' : [] }
                     }
                  }
                   
@@ -79,12 +86,15 @@ class Character:
         data.append(player)
         with open('Characters.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
+
+        # print(player)
+        return player
         
     def search(self, ID):
         with open('Characters.json') as f:
             data = json.load(f)
             for i in range(0, len(data)):
-                if data[i]['Player']['Attributes']['ID'] == ID:
+                if data[i][role]['Attributes']['ID'] == ID:
                     return True
             else:
                 return False
@@ -93,18 +103,16 @@ class Character:
         with open('Characters.json') as f:
             data = json.load(f)
             for i in range(0, len(data)):
-                # print(data[i]['Player']['Attributes']['Name'])
-                # print(data[i]['Player']['Attributes']['Race'])
-                # print(data[i]['Player']['Attributes']['Class'])
-                if data[i]['Player']['Attributes']['Name'] == Name and data[i]['Player']['Attributes']['Race'] == Race and data[i]['Player']['Attributes']['Class'] == Class:
-                    player = data[i]['Player']['Attributes']
+                role = data[i]['Role']
+                if data[i][role]['Attributes']['Name'] == Name and data[i][role]['Attributes']['Race'] == Race and data[i][role]['Attributes']['Class'] == Class:
+                    player = data[i][role]['Attributes']
                     # print(player)
                     return player
             else:
                 return False
         
     def __str__(self):
-        return f'{self.Name} is a level {self.Level} {self.Race} {self.Class} with {self.Health} health, {self.Strength} strength, {self.Dexterity} dexterity, {self.Constitution} constitution, {self.Intelligence} intelligence, {self.Wisdom} wisdom, and {self.Charisma} charisma.'
+        return f'Character ID:{self.ID} - {self.Name} is a level {self.Level} {self.Race} {self.Class} with {self.Health} health, {self.Strength} strength, {self.Dexterity} dexterity, {self.Constitution} constitution, {self.Intelligence} intelligence, {self.Wisdom} wisdom, and {self.Charisma} charisma.'
 
     feats = [{'Sentinel', "A successful OA reduce creature's speed to 0 for this turn and possibility to make an OA even if the ennemy take Disengage."},
             {'Great Weapon Master', 'Extra attack after a melee critical hit and you can choose to take -5 to attack roll to add +10 to damage with an heavy weapon.'},
@@ -153,3 +161,10 @@ class Character:
                 print(f'{title}: {desc} \n')
             feat = input('Which feat would you like to take? ')
             self.feat.append(feat)
+
+
+    # def heal(self, amount):
+        
+    
+    def damage(self, amount):
+        self.Health -= amount

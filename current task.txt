@@ -6,3 +6,9 @@ create character (/)
 load character
     - 1st character (/)
     - 2nd character ()
+
+Battle
+    - runs all the way through battle. (/)
+
+Detailed Character Creation
+    -
