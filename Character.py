@@ -105,7 +105,7 @@ class Character:
             for i in range(0, len(data)):
                 role = data[i]['Role']
                 if data[i][role]['Attributes']['Name'] == Name and data[i][role]['Attributes']['Race'] == Race and data[i][role]['Attributes']['Class'] == Class:
-                    player = data[i][role]['Attributes']
+                    player = data[i][role]
                     # print(player)
                     return player
             else:

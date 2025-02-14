@@ -2,6 +2,7 @@ import json
 import Character
 import random
 import tkinter as tk
+from tkinter import ttk
 
 # import os
     # print(os.getcwd())
@@ -10,7 +11,13 @@ class DnD_App:
     def __init__(self, root):
         root = root
         root.title("DnD Game")
-        self.main()
+        root.geometry("800x600")
+        root.configure(bg='firebrick')
+        # set minimum window size value
+        root.minsize(400, 400)
+
+        self.createGUI()
+        # self.main()
         
 
     plyr = Character.Character(0, '', '', 0, 0, '', '', '', '', '', '', '', '', '')
@@ -31,8 +38,73 @@ class DnD_App:
         else:
             return total, rolls
 
-    # def createGUI():
+    def createGUI(self):
 
+        plyr = Character.Character.load('p','p','p')
+        attribute = plyr['Attributes']
+        abilities = attribute['Abilities']
+        plyrInventory = plyr['Inventory']
+        print(plyr)
+
+        leftFrame = tk.Frame(root, width=200, height=500, bg='light grey')
+        leftFrame.pack(padx=10, pady=10, side=tk.LEFT, fill=tk.Y )
+        tk.Label(leftFrame, text="D&D App", bg='light grey').pack(padx=50, pady=5)
+
+        notebook = ttk.Notebook(leftFrame)
+        notebook.pack(expand=True, fill='both')
+
+        # Character Sheet Tab
+        characterTab = tk.Frame(notebook, bg='SteelBlue4')
+
+        AC = plyrInventory['Equipped Armour']['AC']
+
+        stats = [('Level', attribute['Level']), ('Experience', attribute['Experience']), ('Name', attribute['Name']), ('Race', attribute['Race']), ('Class', attribute['Class']),
+        ('Health', attribute['Health']), ('AC', AC), ('Strength', abilities['Strength']), ('Dexterity', abilities['Dexterity']),
+        ('Constitution', abilities['Constitution']), ('Intelligence', abilities['Intelligence']), ('Wisdom', abilities['Wisdom']),
+        ('Charisma', abilities['Charisma'])]
+
+        for i, (stats, value) in  enumerate(stats):
+            tk.Label(characterTab, text=stats, bg='light grey').grid(row=i, column=0, padx=10, pady=5, sticky='w')
+            tk.Label(characterTab, textvariable=tk.StringVar(value=value), bg='light grey').grid(row=i, column=1, padx=10, pady=5, sticky='w')
+            # tk.Entry(characterTab, textvariable=tk.StringVar(value=value), bg='light grey').grid(row=i, column=1, padx=10, pady=5, sticky='w')
+
+        menuTab = tk.Frame(notebook, bg='SteelBlue4')
+        options = ('Create Character', 'Load Character', 'Save Character', 'Exit')
+        for i, (option) in enumerate(options): 
+            tk.Button(menuTab, text=option, bg='light grey').grid(row=i, column=0, padx=10, pady=5, sticky='w')
+
+        # Inventory Tab
+        inventoryTab = tk.Frame(notebook, bg='SteelBlue4')
+        inventory = [('Equipped Weapon', plyrInventory['Equipped Weapon']['Weapon Name']+' - '+plyrInventory['Equipped Weapon']['Attack Dice']), 
+                     ('Equipped Armor', plyrInventory['Equipped Armour']['Armour Name']), 
+                     ('Coins', str(plyrInventory['Coins']['Platinum'])+ 'pp, '+str(plyrInventory['Coins']['Gold'])+'gp, '+str(plyrInventory['Coins']['Silver'])+'sp, '+str(plyrInventory['Coins']['Copper'])+'cp'), 
+                     ] 
+         
+        for i, (inventory, value) in enumerate(inventory):
+            tk.Label(inventoryTab, text=inventory, bg='light grey').grid(row=i, column=0, padx=10, pady=5, sticky='w')
+            tk.Label(inventoryTab, textvariable=tk.StringVar(value=value), bg='light grey').grid(row=i, column=1, padx=10, pady=5, sticky='w')
+
+        # Spells Tab
+        spellsTab = tk.Frame(notebook, bg='SteelBlue4')
+        spells = [('Level 1', 'Magic Missile'), ('Level 2', 'Healing Hands'), ('Level 3', 'Fireball')]
+        for i, (spells, value) in enumerate(spells):
+            tk.Label(spellsTab, text=spells, bg='light grey').grid(row=i, column=0, padx=10, pady=5, sticky='w')
+            tk.Label(spellsTab, text=value, bg='light grey').grid(row=i, column=1, padx=10, pady=5, sticky='w')
+        
+        # Dice Tab - not working yet
+        diceTab = tk.Frame(notebook, bg='SteelBlue4')
+        dice = [('1d4',''),('1d6',''), ('1d8',''), ('1d10',''), ('1d12',''), ('1d20',''), ('1d100','')]
+        for i, (dice, bonus) in enumerate(dice):
+            tk.Button(diceTab, text=dice, bg='light grey', command=lambda:self.rollDice(dice, bonus)).grid(row=i, column=0, padx=10, pady=5, sticky='w')
+
+        
+        menu = [(characterTab, 'Character Sheet'), (inventoryTab,'Inventory'), (spellsTab,'Spells'), (diceTab,'Dice'), (menuTab, 'Menu')] 
+        for i, (tabs, title) in enumerate(menu):
+            notebook.add(tabs, text=title)
+
+        
+        mainFrame = tk.Frame(root, width=600, height=600, bg='light grey')
+        mainFrame.pack(padx=10, pady=10, side=tk.RIGHT)
 
 
     def createCharacter(self):
@@ -63,7 +135,6 @@ class DnD_App:
                 self.main()
         return plyr
         
-
     def loadCharacter(self, name, race, chrClass):
         if not name and not race and not chrClass:
             print("Welcome to the D&D Character Loader!")
@@ -174,7 +245,7 @@ class DnD_App:
         # levelUp(plyr)
         plyr.level_up("increase ability scores")
         # Character.Character.level_up(plyr, "increase ability scores")
-    #   main()
+        #   main()
 
     def levelUp(self, plyr):
         print("Level up")
@@ -220,13 +291,7 @@ class DnD_App:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("400x400")
- 
-    # set minimum window size value
-    root.minsize(400, 400)
-
     app = DnD_App(root)
-
     root.mainloop()
     
     
