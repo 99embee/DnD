@@ -90,14 +90,14 @@ class Character:
         # print(player)
         return player
         
-    def search(self, ID):
-        with open('Characters.json') as f:
-            data = json.load(f)
-            for i in range(0, len(data)):
-                if data[i][role]['Attributes']['ID'] == ID:
-                    return True
-            else:
-                return False
+    # def search(self, ID):
+    #     with open('Characters.json') as f:
+    #         data = json.load(f)
+    #         for i in range(0, len(data)):
+    #             if data[i][role]['Attributes']['ID'] == ID:
+    #                 return True
+    #         else:
+    #             return False
 
     def load(Name, Race, Class):
         with open('Characters.json') as f:
