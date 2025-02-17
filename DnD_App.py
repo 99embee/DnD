@@ -194,8 +194,8 @@ class DnD_App:
         for i, (question, pos) in enumerate(details):
             lblDetails = tk.Label(charFrame, text=question, bg='SteelBlue4')
             lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
-            value = tk.Entry(charFrame, bg='SteelBlue4')
-            value.grid(row=i, column=1, padx=10, pady=5, sticky='w')
+            EntryDetails = tk.Entry(charFrame, bg='SteelBlue4')
+            EntryDetails.grid(row=i, column=1, padx=10, pady=5, sticky='w')
 
         abilities = [('Strength', 9), ('Dexterity', 10), ('Constitution', 11), ('Intelligence', 12), ('Wisdom', 13), ('Charisma', 14)]
         abilityFrame = tk.Frame(createChar, bg='light grey')
@@ -210,7 +210,11 @@ class DnD_App:
         tk.Button(abilityFrame, text='Roll',command=lambda:self.abilityRolls(createChar, chrDetails, lblAbilityScores), bg='SteelBlue4').grid(row=11, column=0, padx=10, pady=5, sticky='')
         tk.Button(createChar, text='Apply',command=lambda:self.createCharacter(chrDetails), bg='SteelBlue4').grid(row=4, column=0, padx=10, pady=5, sticky='')
     
-    def createCharacter(self, chrDetails):
+    def createCharacter(self, chrDetails, EntryDetails ):
+        # Need tp retrieve the Name, Race, and Class from the entryDetails tkinter. 
+        # Currently the chrDetails is empty for index: 3, 6, 7
+        # Also create a 'Race' and a 'Class' class for race health dice roll. and race combobox tkinter. 
+        print(f"createCharacter: {chrDetails}")
         print(f"createCharacter: {chrDetails}")
         plyr = Character.Character(0, 'Player', chrDetails[3], 1, 0, chrDetails[6], chrDetails[7], self.rollDice("1d10", "")[0], chrDetails[9] ,chrDetails[10],chrDetails[11],chrDetails[12],chrDetails[13],chrDetails[14])
         print(plyr)

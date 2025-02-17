@@ -1,16 +1,5 @@
-testing:
-create character (/)
-    - 1st character (/)
-    - 2nd character (/)
-    - 3rd character (/)
-load character
-    - 1st character (/)
-    - 2nd character ()
+TO DO: 
 
-Battle
-    - runs all the way through battle. (/)
-
-Detailed Character Creation
-    -
-    If user presses one die total button them the roll dice should be removed. 
-
+# Need tp retrieve the Name, Race, and Class from the entryDetails tkinter. 
+# Currently the chrDetails is empty for index: 3, 6, 7
+# Also create a 'Race' and a 'Class' class for race health dice roll. and race combobox tkinter.
