@@ -12,3 +12,5 @@ Battle
 
 Detailed Character Creation
     -
+    If user presses one die total button them the roll dice should be removed. 
+

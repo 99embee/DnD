@@ -9,17 +9,17 @@ from tkinter import ttk
 
 class DnD_App:
     def __init__(self, root):
-        root = root
-        root.title("DnD Game")
-        root.geometry("800x600")
-        root.configure(bg='firebrick')
+        self.root = root
+        self.root.title("DnD Game")
+        # self.root.geometry("800x600")
+        self.root.configure(bg='firebrick')
         # set minimum window size value
-        root.minsize(400, 400)
+        self.root.minsize(225, 150)
 
-        self.createGUI()
+        self.startGUI()
+        # self.createGUI()
         # self.main()
         
-
     plyr = Character.Character(0, '', '', 0, 0, '', '', '', '', '', '', '', '', '')
 
     def rollDice(self, dice, bonus):
@@ -30,21 +30,46 @@ class DnD_App:
         total = 0
         rolls = []
         for i in range(0, int(leftDice)):
-            total += random.randint(1, int(rightDice))
-            rolls.append(total)
+            num = random.randint(1, int(rightDice))
+            total += num
+            rolls.append(num)
         if bonus != "":
             total += bonus
             return total, rolls
         else:
             return total, rolls
 
+    def startGUI(self):
+
+        startFrame = tk.Frame(root, width=400, height=400, bg='light grey')
+        startFrame.pack(padx=10, pady=10)
+        lblTitle = tk.Label(startFrame, text="D&D App", bg='SteelBlue4')
+        lblTitle.grid(row=0, column=0, padx=10, pady=5, sticky='')
+        btnCreate = tk.Button(startFrame, text="Create Character", bg='SteelBlue4', command=lambda:[ self.createCharacter()])
+        btnCreate.grid(row=1, column=0, padx=10, pady=5, sticky='')
+        btnLoad = tk.Button(startFrame, text="Load Character", bg='SteelBlue4', command=lambda:self.loadCharacter)
+        btnLoad.grid(row=2, column=0, padx=10, pady=5, sticky='')
+        btnExit = tk.Button(startFrame, text="Exit", bg='SteelBlue4', command=lambda:root.quit)
+        btnExit.grid(row=3, column=0, padx=10, pady=5, sticky_='')
+
+        print(btnCreate)
+        # startFrame.destroy()
+        # self.createGUI(plyr)
+
     def createGUI(self):
 
-        plyr = Character.Character.load('p','p','p')
+        # self.startGUI()
+
+        plyr = Character.Character.load('','','')
+
+        if not plyr:
+            plyr = self.createCharacter()
+            print(plyr)   
+
         attribute = plyr['Attributes']
         abilities = attribute['Abilities']
         plyrInventory = plyr['Inventory']
-        print(plyr)
+        # print(plyr)
 
         leftFrame = tk.Frame(root, width=200, height=500, bg='light grey')
         leftFrame.pack(padx=10, pady=10, side=tk.LEFT, fill=tk.Y )
@@ -105,22 +130,66 @@ class DnD_App:
         
         mainFrame = tk.Frame(root, width=600, height=600, bg='light grey')
         mainFrame.pack(padx=10, pady=10, side=tk.RIGHT)
+    
+    def abilityRolls(self, abilityFrame,  chrDetails, lblAbilityScores):
+        btnRoll = [None] * 6
+        for x in range( 6):
+            total, rolls = self.rollDice("4d6", "")
+            total = total-min(rolls)
+            rolls.remove(min(rolls))
+            for i in range(len(rolls)):
+                tk.Label(abilityFrame, text=rolls[i], bg='SteelBlue4').grid(row=x+3, column=i, padx=10, pady=5, sticky='')
+            btnRoll[x] = tk.Button(abilityFrame, bg='SteelBlue4', text=total, command=lambda  pos=x, total=total: self.abilityValue(chrDetails, total, lblAbilityScores, btnRoll, pos))            
+            btnRoll[x].grid(row=x+3, column=len(rolls)+1, padx=10, pady=10, sticky='')
 
+    def abilityValue(self,  chrDetails, value, lblAbilityScores, btnRoll, pos):
+        chrDetails[self.selectedRadio] = value
+        lblAbilityScores[self.selectedRadio].config(text=chrDetails[self.selectedRadio])
+        btnRoll[pos].grid_remove()
+
+    def radioButtonSelection(self, option):
+        self.selectedRadio = option
 
     def createCharacter(self):
-        print("Welcome to the D&D Character Creator!")
-        name = input("What is your character's name? ")
-        level = 1
-        race = input("What is your character race? ")
-        chrClass = input("What is your character class? ")
-        # health =self.rollDice("1d10", "")
-        # strength =self.rollDice("3d6", "")
-        # dexterity =self.rollDice("3d6", "")
-        # constitution =self.rollDice("3d6", "")
-        # intelligence =self.rollDice("3d6", "")
-        # wisdom =self.rollDice("3d6", "")
-        # charisma =self.rollDice("3d6", "")
-        plyr = Character.Character(0, 'Player', name, level, 0, race, chrClass,self.rollDice("1d10", "")[0],self.rollDice("3d6", "")[0],self.rollDice("3d6", "")[0],self.rollDice("3d6", "")[0],self.rollDice("3d6", "")[0],self.rollDice("3d6", "")[0],self.rollDice("3d6", "")[0])
+        
+        createChar = tk.Toplevel(root, width=400, height=400, bg='firebrick')
+        createChar.title("Create a character")
+        createChar.geometry("800x600")
+        charFrame = tk.Frame(createChar, width=400, height=400, bg='light grey')
+        charFrame.grid(row=0, column=0, padx=10, pady=5, sticky='')
+
+        detailsPositions = [{'What is your character\'s name?', 3}, {'What is your character\'s race?', 6}, {'What is your character\'s class?', 7}, {'Strength', 9}, {'Dexterity', 10}, {'Constitution', 11}, {'Intelligence', 12}, {'Wisdom', 13}, {'Charisma', 14}]
+
+        details = [('What is your character\'s name?', 3), ('What is your character\'s race?', 6), ('What is your character\'s class?', 7)]
+        chrDetails = {}
+        for i, (question, pos) in enumerate(details):
+            lblDetails = tk.Label(charFrame, text=question, bg='SteelBlue4')
+            lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
+            value = tk.Entry(charFrame, bg='SteelBlue4')
+            value.grid(row=i, column=1, padx=10, pady=5, sticky='w')
+        
+        global selectedRadio 
+        radioVar = tk.IntVar()
+        
+        abilities = [('Strength', 9), ('Dexterity', 10), ('Constitution', 11), ('Intelligence', 12), ('Wisdom', 13), ('Charisma', 14)]
+        # print(abilities)
+        abilityFrame = tk.Frame(createChar, bg='light grey')
+        abilityFrame.grid(row=1, column=0, padx=10, pady=5, sticky='')
+        lblAbilityScores = {}
+        for i, (ability, pos) in enumerate(abilities):
+            # print(ability)
+            lblAbility = tk.Label(abilityFrame, text=ability, bg='SteelBlue4')
+            lblAbility.grid(row=0, column=i, padx=10, pady=5, sticky='w')
+            tk.Radiobutton(abilityFrame, value=pos, variable=radioVar,command=lambda:self.radioButtonSelection(radioVar.get()), bg='SteelBlue4').grid(row=1, column=i, padx=10, pady=5, sticky='w')
+            lblAbilityScores[pos] = tk.Label(abilityFrame, text="", bg='SteelBlue4')
+            lblAbilityScores[pos].grid(row=2, column=i, padx=10, pady=5, sticky='w')
+
+        tk.Button(abilityFrame, text='Roll',command=lambda:self.abilityRolls(abilityFrame, chrDetails, lblAbilityScores), bg='SteelBlue4').grid(row=11, column=0, padx=10, pady=5, sticky='')
+
+        tk.Button(createChar, text='Apply',command=lambda:self.characterMake(chrDetails), bg='SteelBlue4').grid(row=2, column=0, padx=10, pady=5, sticky='')
+    
+    def characterMake(self, chrDetails):
+        plyr = Character.Character(0, 'Player', chrDetails[3], 1, 0, chrDetails[6], chrDetails[7], self.rollDice("1d10", "")[0], chrDetails[9] ,chrDetails[10],chrDetails[11],chrDetails[12],chrDetails[13],chrDetails[14])
         print(plyr)
         if plyr.checkUnique():
             plyr.save()
@@ -130,10 +199,11 @@ class DnD_App:
             print("Would you like to load that player?")
             choice = input("Yes or No?")
             if choice.lower() == "yes":
-                plyr == self.loadCharacter(name, race, chrClass)
+                plyr == self.loadCharacter(chrDetails[3], chrDetails[6], chrDetails[7])
             else:
                 self.main()
         return plyr
+        
         
     def loadCharacter(self, name, race, chrClass):
         if not name and not race and not chrClass:
@@ -164,7 +234,7 @@ class DnD_App:
             mob = self.loadCharacter(mob.Name, mob.Race, mob.Class)
             print('loaded mob: ', mob)
         
-        print("A goblin appears!")
+        print(f"A {mob.Name} appears!")
         choice = input("Would you like to attack or run?")
         if choice == "attack":
             playerInitiative = self.rollDice("1d20", "")
@@ -175,7 +245,7 @@ class DnD_App:
             else:
                 initiative = [mob, plyr]
                 print(f"The {mob.Name} goes first!")
-            print(initiative)
+            # print(initiative)
             while mob.Health > 0 or plyr.Health > 0:
                 # choice = input("Would you like to attack or run?")
                 # if choice == "attack":
