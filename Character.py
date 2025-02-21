@@ -32,15 +32,13 @@ class Character:
         try:
             with open('Characters.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # print('Data loaded from JSON:', data)
-                role = self.Role
-                # print('self.Role = ',role)
-                # print(len(data))
-                for i in range(1, len(data)):
-                    # print(data[i])
-                    # print(role)
-                    if data[i][role]['Attributes']['Name'] == self.Name and data[i][role]['Attributes']['Race'] == self.Race and data[i][role]['Attributes']['Class'] == self.Class:
-                        return False
+                for i in range(0, len(data)):
+                    if 'Role' in data[i]:
+                        role = data[i]['Role']
+                        if data[i][role]['Attributes']['Name'] == self.Name and data[i][role]['Attributes']['Race'] == self.Race and data[i][role]['Attributes']['Class'] == self.Class:
+                            return False
+                    else:
+                        print(f"Error: 'Role' key not found in data[{i}]")
                 return True
         except (FileNotFoundError, json.JSONDecodeError):
             return True

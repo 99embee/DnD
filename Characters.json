@@ -86,9 +86,15 @@
                     "Silver": 0,
                     "Copper": 0
                 },
-                "Equipped Weapon": {"Weapon Name": "Longsword", "Attack Dice": "1d8"},
+                "Equipped Weapon": {
+                    "Weapon Name": "Longsword",
+                    "Attack Dice": "1d8"
+                },
                 "Weapons": [],
-                "Equipped Armour": {"Armour Name": "Breastplace", "AC": 14},
+                "Equipped Armour": {
+                    "Armour Name": "Breastplace",
+                    "AC": 14
+                },
                 "Armour": [],
                 "Items": []
             }
@@ -115,7 +121,7 @@
                     "Constitution": 13,
                     "Intelligence": 9,
                     "Wisdom": 11,
-                    "Charisma":10
+                    "Charisma": 10
                 }
             },
             "Extra": {
@@ -181,7 +187,102 @@
                     "Silver": 0,
                     "Copper": 0
                 },
-                "Equipped Weapon": {"Weapon Name": "Shortsword", "Attack Dice": "1d6"},
+                "Equipped Weapon": {
+                    "Weapon Name": "Shortsword",
+                    "Attack Dice": "1d6"
+                },
+                "Weapons": [],
+                "Equipped Armour": {},
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "3-testName",
+        "Role": "Player",
+        "Player": {
+            "Attributes": {
+                "ID": 3,
+                "Name": "testName",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "testRace",
+                "Class": "testClass",
+                "Health": 7,
+                "Abilities": {
+                    "Strength": 12,
+                    "Dexterity": 9,
+                    "Constitution": 9,
+                    "Intelligence": 11,
+                    "Wisdom": 11,
+                    "Charisma": 15
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": {},
                 "Weapons": [],
                 "Equipped Armour": {},
                 "Armour": [],
