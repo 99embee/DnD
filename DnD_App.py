@@ -1,5 +1,7 @@
 import json
 import Character
+import Race
+import Class
 import random
 import tkinter as tk
 from tkinter import ttk
@@ -195,8 +197,50 @@ class DnD_App:
         for i, (question, pos) in enumerate(details):
             lblDetails = tk.Label(charFrame, text=question, bg='SteelBlue4')
             lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
-            entryDetails[pos] = tk.Entry(charFrame, bg='SteelBlue4')
-            entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
+            # entryDetails[pos] = tk.Entry(charFrame, bg='SteelBlue4')
+            # entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
+        entryDetails[3] = tk.Entry(charFrame, bg='SteelBlue4')
+        entryDetails[3].grid(row=i, column=1, padx=10, pady=5, sticky='w')
+
+        raceVar = tk.StringVar()
+        raceMenu = ttk.Combobox(charFrame, textvariable=raceVar, state='readonly')
+        raceMenu.grid(row=1, column=1, padx=10, pady=5, sticky='w')
+
+        classVar = tk.StringVar()
+        classMenu = ttk.Combobox(charFrame, textvariable=classVar, state='readonly')
+        classMenu.grid(row=2, column=1, padx=10, pady=5, sticky='w')
+
+            
+        
+
+        # Add subrace selection
+        lblSubrace = tk.Label(charFrame, text="Select Subrace", bg='SteelBlue4')
+        lblSubrace.grid(row=3, column=0, padx=10, pady=5, sticky='w')
+        subraceVar = tk.StringVar()
+        subraceMenu = ttk.Combobox(charFrame, textvariable=subraceVar, state='readonly')
+        subraceMenu.grid(row=3, column=1, padx=10, pady=5, sticky='w')
+
+        race_classes = Race.load_races_from_json("5eTools data/races.json")
+        class_classes = Class.load_classes_from_json("5eTools data/races.json")
+
+        raceMenu['values'] = list(race_classes.keys())
+        classMenu['values'] = list(class_classes.keys())
+
+
+        def updateSubraces(event):
+            race_name = raceVar.get()
+            race_class = race_classes.get(race_name)
+            if race_class:
+                subraces = race_class().subraces
+                if subraces:
+                    subraceMenu['values'] = [subrace['name'] for subrace in subraces]
+                    subraceMenu.grid()
+                    lblSubrace.grid()
+                else:
+                    subraceMenu.grid_remove()
+                    lblSubrace.grid_remove()
+
+        raceMenu.bind("<<ComboboxSelected>>", updateSubraces)
 
         abilities = [('Strength', 9), ('Dexterity', 10), ('Constitution', 11), ('Intelligence', 12), ('Wisdom', 13), ('Charisma', 14)]
         abilityFrame = tk.Frame(createChar, bg='light grey')
@@ -209,13 +253,10 @@ class DnD_App:
             lblAbilityScores[pos].grid(row=2, column=i, padx=10, pady=5, sticky='w')
         
         tk.Button(abilityFrame, text='Roll',command=lambda:self.abilityRolls(createChar, chrDetails, lblAbilityScores), bg='SteelBlue4').grid(row=11, column=0, padx=10, pady=5, sticky='')
-        tk.Button(createChar, text='Apply',command=lambda:self.createCharacter(chrDetails, entryDetails), bg='SteelBlue4').grid(row=4, column=0, padx=10, pady=5, sticky='')
+        tk.Button(createChar, text='Apply',command=lambda:self.createCharacter(chrDetails, entryDetails, createChar), bg='SteelBlue4').grid(row=4, column=0, padx=10, pady=5, sticky='')
     
-    def createCharacter(self, chrDetails, entryDetails ):
-        # Need tp retrieve the Name, Race, and Class from the entryDetails tkinter. 
-        # Currently the chrDetails is empty for index: 3, 6, 7
-        # Also create a 'Race' and a 'Class' class for race health dice roll. and race combobox tkinter. 
-        
+    def createCharacter(self, chrDetails, entryDetails, createChar ):
+
         for pos in entryDetails:
             print(f"entryDetails[pos].get(): {entryDetails[pos].get()}")
             chrDetails[pos] = entryDetails[pos].get()
@@ -224,7 +265,8 @@ class DnD_App:
         print(plyr)
         if plyr.checkUnique():
             plyr.save()
-            print("Character created!")
+            createChar.destroy()
+            self.story()
         else:
             print("Character already exists!")
             print("Would you like to load that player?")
@@ -394,5 +436,4 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = DnD_App(root)
     root.mainloop()
-    
-    
+
