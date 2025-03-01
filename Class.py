@@ -1,97 +1,115 @@
-from abc import ABC, abstractmethod
 import json
 import os
 
-class CharacterClass(ABC):
-    def __init__(self, name, hit_die, primary_ability, saving_throws, proficiencies, fluff=None):
+class CharacterClass:
+    def __init__(self, name, hit_die, primary_ability, saving_throws, proficiencies, source, class_features, subclasses, subclass_features):
         self.name = name
         self.hit_die = hit_die
         self.primary_ability = primary_ability
         self.saving_throws = saving_throws
         self.proficiencies = proficiencies
-        self.fluff = fluff
-
-    @abstractmethod
-    def class_features(self):
-        pass
+        self.source = source
+        self.class_features = class_features
+        self.subclasses = subclasses
+        self.subclass_features = subclass_features
 
     def __str__(self):
-        return f"{self.name} (Hit Die: {self.hit_die}, Primary Ability: {self.primary_ability}, Saving Throws: {', '.join(self.saving_throws)}, Proficiencies: {', '.join(self.proficiencies)})"
+        return f"{self.name} (Hit Die: {self.hit_die}, Primary Ability: {', '.join(self.primary_ability)}, Saving Throws: {', '.join(self.saving_throws)}, Proficiencies: {', '.join(self.proficiencies)}, Source: {self.source})"
 
-def load_classes_from_json(directory):
-    classes = {}
+class CharacterClassFactory:
+    @staticmethod
+    def create_character_class(class_data): #, subclass_data
+        try:
+            class_name = class_data['name']
+            hit_die = f"{class_data['hd']['number']}d{class_data['hd']['faces']}"
+            primary_ability = [key for ability in class_data.get('primaryAbility', []) for key in ability.keys()] if isinstance(class_data.get('primaryAbility'), list) else list(class_data.get('primaryAbility', {}).keys())
+            saving_throws = class_data.get('proficiency', [])
+            proficiencies = class_data.get('startingProficiencies', {})
+            source = class_data['source']
+            class_features = class_data.get('classFeatures', [])
+            
+            
+        except KeyError as e:
+            # print(f"Missing attribute {e} in class data: {class_data}")
+            return None
+
+        return CharacterClass(class_name, hit_die, primary_ability, saving_throws, proficiencies, source, class_features) #, subclasses, subclass_details
+
+
+def load_data_from_json(directory):
+    details = {} 
+    details['class'] = {}
+    
     for filename in os.listdir(directory):
         if filename.startswith("class-") and filename.endswith(".json"):
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as f:
                 data = json.load(f)
+                print(filename)
                 for cls in data.get('class', []):
-                    classes[f"{cls['name']}|{cls['source']}"] = cls
-    return classes
+                    cls['name']
+                    if cls['source'] in ['PHB','TCE'] and 'Sidekick' not in cls['name']   :
+                        className = cls['name']
+                        details['class'][className] = {}
+                        details['class'][className]['class_name'] = cls['name']
+                        details['class'][className]['source'] = cls['source']  
+                        details['class'][className]['page'] = cls['page']  
+                        details['class'][className]['hit_dice'] = f"{cls['hd']['number']}d{cls['hd']['faces']}"
+                        details['class'][className]['proficiency'] = cls['proficiency']
+                        details['class'][className]['startingProficiencies'] = cls['startingProficiencies']
+                        details['class'][className]['startingEquipment'] = cls['startingEquipment']
+                        details['class'][className]['multiclassing'] = cls['multiclassing']
+                        details['class'][className]['classTableGroups'] = cls.get('classTableGroups')
+                        details['class'][className]['defaultClassFeatures'] = cls['classFeatures']
+                        details['class'][className]['classFeature'] = []
+                        details['class'][className]['subclasses'] = {}
 
-def load_fluff_from_json(directory):
-    fluff = {}
-    for filename in os.listdir(directory):
-        if filename.startswith("fluff-class-") and filename.endswith(".json"):
-            with open(os.path.join(directory, filename), 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                for cls in data.get('classFluff', []):
-                    fluff[f"{cls['name']}|{cls['source']}"] = cls
-    return fluff
+                        for clsfeature in data.get('classFeature', []):
+                            className = cls['name']
+                            if details['class'][className]['class_name'] == clsfeature['className']:
+                                if 'classFeature' not in details['class'][className]:
+                                    details['class'][className]['classFeature'] = []
+                                feature_details = {
+                                    'name': clsfeature['name'],
+                                    'source': clsfeature['source'],
+                                    'page': clsfeature['page'],
+                                    'level': clsfeature['level'],
+                                    'features': clsfeature['entries']
+                                }
+                                details['class'][className]['classFeature'].append(feature_details)
 
-def merge_class_and_fluff(classes, fluff):
-    for class_name, class_data in classes.items():
-        if class_name in fluff:
-            class_data['fluff'] = fluff[class_name]
-    return classes
+                            for subclass in data.get('subclass', []):
+                                if subclass['classSource'] in ['PHB','TCE']:
+                                    subclassName = subclass['name']
+                                    details['class'][className]['subclasses'][subclassName] = {
+                                        'subclassName': subclass['name'],
+                                        'shortSubclassName': subclass['shortName'],
+                                        'source': subclass['source'],
+                                        'page': subclass['page'],
+                                        'subclassFeatures': [],
+                                        'spellcastingAbility': subclass.get('spellcastingAbility', 'n/a'),
+                                        'additionalSpells': subclass.get('additionalSpells', 'n/a')
+                                    }
+                                    
+                                    for feature in data.get('subclassFeature', []):
+                                        if details['class'][className]['subclasses'][subclassName]['shortSubclassName'] == feature['subclassShortName']:
+                                            feature_details = {
+                                                'name': feature['name'],
+                                                'source': feature['source'],
+                                                'page': feature.get('page', 'n/a'),  # Use get method to avoid KeyError
+                                                'level': feature['level'],
+                                                'feature': feature.get('entries')
+                                            }
+                                            details['class'][className]['subclasses'][subclassName]['subclassFeatures'].append(feature_details)
 
-def create_character_class(class_data):
-    class_name = class_data['name'].replace(" ", "")
-    hit_die = class_data['hd']
-    primary_ability = class_data['primaryAbility'] #if isinstance(class_data['primaryAbility'], list) else class_data['primaryAbility']
-    saving_throws = class_data['proficiency']
-    proficiencies = class_data['startingProficiencies']
-    fluff = class_data.get('fluff', None)
+    # print(details)
+    return details
 
-    def class_features(self):
-        return class_data.get('classFeatures', [])
+def write_classes_to_json(class_details, filename):
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(class_details, f, ensure_ascii=False, indent=4)
 
-    return type(class_name, (CharacterClass,), {
-        '__init__': lambda self: CharacterClass.__init__(self, class_name, hit_die, primary_ability, saving_throws, proficiencies, fluff),
-        'class_features': class_features
-    })
-
-def create_character_subclass(subclass_data, parent_class):
-    subclass_name = subclass_data['name'].replace(" ", "")
-    parent_class_name = parent_class.__name__
-
-    def subclass_features(self):
-        return subclass_data.get('subclassFeatures', [])
-
-    return type(subclass_name, (parent_class,), {
-        '__init__': lambda self: parent_class.__init__(self, parent_class_name, parent_class.hit_die, parent_class.primary_ability, parent_class.saving_throws, parent_class.proficiencies, parent_class.fluff),
-        'subclass_features': subclass_features
-    })
-
-def load_and_create_classes(directory):
-    classes = load_classes_from_json(directory)
-    fluff = load_fluff_from_json(directory)
-    merged_classes = merge_class_and_fluff(classes, fluff)
-
-    character_classes = {}
-    for class_name, class_data in merged_classes.items():
-        character_class = create_character_class(class_data)
-        character_classes[class_name] = character_class
-
-        for subclass_data in class_data.get('subclass', []):
-            character_subclass = create_character_subclass(subclass_data, character_class)
-            character_classes[f"{subclass_data['name']}|{subclass_data['source']}"] = character_subclass
-
-    return character_classes
-
-# Example usage
 if __name__ == "__main__":
     directory = "5eTools data/class"
-    character_classes = load_and_create_classes(directory)
-
-    for class_name, character_class in character_classes.items():
-        print(character_class())
+    character_classes = load_data_from_json(directory)
+    write_classes_to_json(character_classes, "Classes.json")
+    
