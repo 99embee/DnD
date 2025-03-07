@@ -1,5 +1,7 @@
 TO DO: 
 
-# Need tp retrieve the Name, Race, and Class from the entryDetails tkinter. 
-# Currently the chrDetails is empty for index: 3, 6, 7
-# Also create a 'Race' and a 'Class' class for race health dice roll. and race combobox tkinter.
+# make ability modifiers actually do something
+# create saving throws
+# create ability throws ( str, dex, ,...)
+# Create the proficencies and have the ability modifiers affect those proficencies 
+ 
