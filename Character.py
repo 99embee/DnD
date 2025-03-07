@@ -1,15 +1,16 @@
 import json
 
 class Character:
-    def __init__(self, ID, Role, Name, Level, Eperience, Race, Class, Health, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma):
-        
+    def __init__(self, ID, Role, Name, Level, Experience, Race, Subrace, Class, Subclass, Health, Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma):
         self.ID = ID
         self.Role = Role
         self.Name = Name
         self.Level = Level
-        self.Experience = Eperience
+        self.Experience = Experience
         self.Race = Race
+        self.Subrace = Subrace
         self.Class = Class
+        self.Subclass = Subclass
         self.Health = Health
         self.Strength = Strength
         self.Dexterity = Dexterity
@@ -17,18 +18,29 @@ class Character:
         self.Intelligence = Intelligence
         self.Wisdom = Wisdom
         self.Charisma = Charisma
+        self.modifiers = self.calculate_modifiers()
 
-
-    # def isJsonEmpty(Json):
-    #     try:
-    #         with open(Json, 'r', encoding='utf-8') as f:
-    #             data = json.load(f)
-    #             return len(data) == 0
-    #     except (FileNotFoundError, json.JSONDecodeError):
-    #         return True
+    def calculate_modifiers(self):
+        modifiers = {}
+        abilities = {
+            'Strength': self.Strength,
+            'Dexterity': self.Dexterity,
+            'Constitution': self.Constitution,
+            'Intelligence': self.Intelligence,
+            'Wisdom': self.Wisdom,
+            'Charisma': self.Charisma
+        }
+        for ability, score in abilities.items():
+            if score > 10 and score % 2 == 0:
+                modifiers[ability] = (score - 10) // 2
+            elif score < 10 and score % 2 == 0:
+                modifiers[ability] = (score - 10) // 2
+            else:
+                modifiers[ability] = (score - 10) // 2
+        return modifiers
 
     def checkUnique(self):
-        print(self)
+        # print(self)
         try:
             with open('Characters.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
@@ -56,7 +68,7 @@ class Character:
         player = {'Ref' : str(self.id) + '-'+self.Name, 'Role': self.Role, self.Role: 
                     { 'Attributes':
                         {'ID' : self.id, 'Name' : self.Name, 'Level' : self.Level, 'Experience': self.Experience, 'Race' : self.Race,
-                        'Class' : self.Class, 'Health' : self.Health, 
+                         'Subrace' : self.Subrace, 'Class' : self.Class, 'Subclass' : self.Subclass, 'Health' : self.Health, 
                         'Abilities':{'Strength' : self.Strength,
                                      'Dexterity' : self.Dexterity, 'Constitution' : self.Constitution, 
                                      'Intelligence' : self.Intelligence, 'Wisdom' : self.Wisdom, 'Charisma' : self.Charisma}},
@@ -80,22 +92,12 @@ class Character:
                     }
                  }
                   
-        
         data.append(player)
         with open('Characters.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
 
         # print(player)
         return player
-        
-    # def search(self, ID):
-    #     with open('Characters.json') as f:
-    #         data = json.load(f)
-    #         for i in range(0, len(data)):
-    #             if data[i][role]['Attributes']['ID'] == ID:
-    #                 return True
-    #         else:
-    #             return False
 
     def load(Name, Race, Class):
         with open('Characters.json') as f:
@@ -122,6 +124,8 @@ class Character:
         print('first line')
         print(f'{self.Name} leveled up!')
         self.Level += 1
+        if self.Level == 3 and self.Subclass is None:
+            self.Subclass = input('Choose your subclass: ')
         if choice == 'increase ability scores':
             print('You can increase one ability score by 2 or two ability scores by 1.')
             cost = 2
@@ -160,9 +164,8 @@ class Character:
             feat = input('Which feat would you like to take? ')
             self.feat.append(feat)
 
-
-    # def heal(self, amount):
-        
+    def heal(self, amount):
+        self.Health += amount
     
     def damage(self, amount):
         self.Health -= amount
