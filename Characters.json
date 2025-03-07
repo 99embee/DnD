@@ -289,5 +289,190 @@
                 "Items": []
             }
         }
+    },
+    {
+        "Ref": "4-test chr",
+        "Role": "Player",
+        "Player": {
+            "Attributes": {
+                "ID": 4,
+                "Name": "test chr",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Human",
+                "Class": "Barbarian",
+                "Health": 3,
+                "Abilities": {
+                    "Strength": 18,
+                    "Dexterity": 15,
+                    "Constitution": 17,
+                    "Intelligence": 11,
+                    "Wisdom": 11,
+                    "Charisma": 12
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": {},
+                "Weapons": [],
+                "Equipped Armour": {},
+                "Armour": [],
+                "Items": []
+            }
+        }
+    },
+    {
+        "Ref": "5-test Barb",
+        "Role": "Player",
+        "Player": {
+            "Attributes": {
+                "ID": 5,
+                "Name": "test Barb",
+                "Level": 1,
+                "Experience": 0,
+                "Race": "Human",
+                "Subrace": "Variant",
+                "Class": "Barbarian",
+                "Health": 11,
+                "Abilities": {
+                    "Strength": 17,
+                    "Dexterity": 13,
+                    "Constitution": 16,
+                    "Intelligence": 9,
+                    "Wisdom": 12,
+                    "Charisma": 12
+                }
+            },
+            "Extra": {
+                "Alignment": "",
+                "Background": "",
+                "Personality": "",
+                "Ideals": "",
+                "Bonds": "",
+                "Flaws": ""
+            },
+            "Details": {
+                "Feats": [],
+                "Spells": {
+                    "Cantrips": {},
+                    "1st Level": {
+                        "1st Spell Slots": {},
+                        "1st lvl Spells": {}
+                    },
+                    "2nd Level": {
+                        "2nd Spell Slots": {},
+                        "2nd lvl Spells": {}
+                    },
+                    "3rd Level": {
+                        "3rd Spell Slots": {},
+                        "3rd lvl Spells": {}
+                    },
+                    "4th Level": {
+                        "4th Spell Slots": {},
+                        "4th lvl Spells": {}
+                    },
+                    "5th Level": {
+                        "5th Spell Slots": {},
+                        "5th lvl Spells": {}
+                    },
+                    "6th Level": {
+                        "6th Spell Slots": {},
+                        "6th lvl Spells": {}
+                    },
+                    "7th Level": {
+                        "7th Spell Slots": {},
+                        "7th lvl Spells": {}
+                    },
+                    "8th Level": {
+                        "8th Spell Slots": {},
+                        "8th lvl Spells": {}
+                    },
+                    "9th Level": {
+                        "9th Spell Slots": {},
+                        "9th lvl Spells": {}
+                    }
+                },
+                "Skills": {
+                    "Skills": []
+                },
+                "Languages": {
+                    "Languages": []
+                }
+            },
+            "Inventory": {
+                "Coins": {
+                    "Platinum": 0,
+                    "Gold": 0,
+                    "Silver": 0,
+                    "Copper": 0
+                },
+                "Equipped Weapon": {},
+                "Weapons": [],
+                "Equipped Armour": {},
+                "Armour": [],
+                "Items": []
+            }
+        }
     }
 ]
