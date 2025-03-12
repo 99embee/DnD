@@ -131,18 +131,26 @@ class DnD_App:
         mainFrame = tk.Frame(root, width=600, height=600, bg='light grey')
         mainFrame.pack(padx=10, pady=10, side=tk.RIGHT)
     
-    def abilityRolls(self, rollFrame, chrDetails, lblAbilityScores, lblTotals, lblRolls, cbxAbilities):
+    def abilityRolls(self, lblAbilityScores, lblTotals, lblRolls, cbxAbilities, appliedRaceBonuses, appliedSubraceBonuses):
         abilities = [('Strength', 10), ('Dexterity', 11), ('Constitution', 12), ('Intelligence', 13), ('Wisdom', 14), ('Charisma', 15)]
         availableAbilities =  [ability for ability, _ in abilities]
         selectedAbilities = {}
+        diceRolls = {}  # Dictionary to store the dice roll values
 
+        # Reset dice rolls in ability scores
+        for ability, pos in abilities:
+            # current_value = int(lblAbilityScores[pos].cget("text"))
+            racial_bonus = appliedRaceBonuses.get(ability[:3].lower(), 0) + appliedSubraceBonuses.get(ability[:3].lower(), 0)
+            lblAbilityScores[pos].config(text=racial_bonus)
+            # diceRolls[pos] = 0  # Initialize dice rolls to 0
+        
         for x, (ability, pos) in enumerate(abilities):
             total, rolls = self.rollDice("4d6", "")
             total = total - min(rolls)
-            current_value = int(lblAbilityScores[pos].cget("text"))
             lblTotals[x].config(text=total)
             lblRolls[x].config(text=rolls)
             cbxAbilities[x].set("None")
+            # diceRolls[pos] = total
 
             def on_combobox_select(event, x=x, total=total):
                 selectedAbility = cbxAbilities[x].get()
@@ -154,14 +162,15 @@ class DnD_App:
                             current_value = int(lblAbilityScores[previousPos].cget("text"))
                             new_value = current_value - total
                             lblAbilityScores[previousPos].config(text=new_value)
-                            availableAbilities.append(previousAbility)
+                            if previousAbility not in availableAbilities:
+                                availableAbilities.append(previousAbility)
                         del selectedAbilities[x]
                     if selectedAbility != "None":
                         selectedAbilities[x] = selectedAbility
                         pos = next(pos for ability, pos in abilities if ability == selectedAbility)
                         current_value = int(lblAbilityScores[pos].cget("text"))
                         new_value = current_value + total
-                        lblAbilityScores[pos].config(text=str(new_value))
+                        lblAbilityScores[pos].config(text=new_value)
                         availableAbilities.remove(selectedAbility)
                     updateComboboxes()
 
@@ -170,7 +179,8 @@ class DnD_App:
         def updateComboboxes():
             for i in range(6):
                 cbxAbilities[i]['values'] = ["None"] + [ability for ability in availableAbilities if ability not in selectedAbilities.values() or ability == "None"]
-
+        updateComboboxes()
+        
     def designCharacter(self):
         createChar = tk.Toplevel(root, bg='firebrick')
         createChar.title("Create a character")
@@ -225,7 +235,7 @@ class DnD_App:
                 current_value = int(lblAbilityScores[pos].cget("text"))
                 lblAbilityScores[pos].config(text=str(current_value - value))
                 btnBonuses[pos].config(text=0)
-                lblChoice.grid_forget()
+                # lblChoice.grid_forget()
 
             # Remove previous race bonuses
             for ability, value in appliedRaceBonuses.items():
@@ -244,7 +254,7 @@ class DnD_App:
                         current_value = int(lblAbilityScores[pos].cget("text"))
                         lblAbilityScores[pos].config(text=str(current_value - value))
                         btnBonuses[pos].config(text=0)
-                        lblChoice.grid_forget()
+                        # lblChoice.grid_forget()
 
             appliedSubraceBonuses.clear()
 
@@ -254,7 +264,7 @@ class DnD_App:
                     choose_data = bonus['choose']
                     from_abilities = choose_data['from']
                     count = choose_data['count']
-                    displayAbilityChoices(from_abilities, count, appliedRaceBonuses)
+                    # displayAbilityChoices(from_abilities, count, appliedRaceBonuses)
                     setButtonCommands(from_abilities, count)
                 else:
                     for ability, value in bonus.items():
@@ -301,7 +311,7 @@ class DnD_App:
                     from_abilities = choose_data['from']
                     count = choose_data['count']
                     print(f"before displayAbilityChoices: {from_abilities}, {count}, {appliedSubraceBonuses}")
-                    displayAbilityChoices(from_abilities, count, appliedSubraceBonuses)
+                    # displayAbilityChoices(from_abilities, count, appliedSubraceBonuses)
                     print(f"before setButtonCommands: {from_abilities}, {count}")
                     setButtonCommands(from_abilities, count)
                 else:
@@ -330,13 +340,14 @@ class DnD_App:
         appliedSubraceBonuses = {}
         for i, (ability, pos) in enumerate(abilities):
             lblAbility = tk.Label(abilityFrame, text=ability, bg='SteelBlue4')
-            lblAbility.grid(row=0, column=i, padx=10, pady=5, sticky='w')
+            lblAbility.grid(row=1, column=i, padx=10, pady=5, sticky='w')
             lblAbilityScores[pos] = tk.Label(abilityFrame, text=0, bg='SteelBlue4')
             lblAbilityScores[pos].grid(row=2, column=i, padx=10, pady=5, sticky='w')
             btnBonuses[pos] = tk.Button(abilityFrame, text=0, bg='SteelBlue4')
             btnBonuses[pos].grid(row=3, column=i, padx=10, pady=5, sticky='w')
-        lblChoice = tk.Label(abilityFrame, text="", bg='light grey')
-        lblChoice.grid(row=6, column=1, padx=10, pady=5, sticky='w')
+        
+        # lblChoice = tk.Label(abilityFrame, text="", bg='light grey')
+        # lblChoice.grid(row=0, column=0, padx=10, pady=5, sticky='w')
 
         rollFrame = tk.Frame(createChar, bg='light grey')
         rollFrame.grid(row=2, column=0, padx=10, pady=5, sticky='')
@@ -378,8 +389,8 @@ class DnD_App:
             for i in range(6):
                 cbxAbilities[i]['values'] = ["None"] + [ability for ability in availableAbilities if ability not in selectedAbilities.values() or ability == "None"]
 
-        def displayAbilityChoices(from_abilities, count, appliedBonuses):
-            lblChoice.config(text=f"Choose {count} abilities to increase from: {from_abilities}")
+        # def displayAbilityChoices(from_abilities, count, appliedBonuses):
+            # lblChoice.config(text=f"Choose {count} abilities to increase from: {from_abilities}")
             
         def setButtonCommands(from_abilities, count):
             chosenAbilities.clear()
@@ -396,7 +407,7 @@ class DnD_App:
                     print(chosenAbilities)
                     print(count_holder[0])
                     if count_holder[0] == 0:
-                        lblChoice.grid_forget()
+                        # lblChoice.grid_forget()
                         for i, (ability, pos) in enumerate(abilities):
                             if ability[:3].lower() in from_abilities:
                                 btnBonuses[pos].config( text=0, command=None)
@@ -405,13 +416,12 @@ class DnD_App:
 
             for i, (ability, pos) in enumerate(abilities):
                 if ability[:3].lower() in from_abilities:
-                    btnBonuses[pos].config(text=1, command=lambda pos=pos: allocateAbilityPoint(pos))
+                    btnBonuses[pos].config(text="+1", command=lambda pos=pos: allocateAbilityPoint(pos))
                     print(f"btnBonuses {ability} :{btnBonuses[pos].cget("text")}")
                 else:
                     btnBonuses[pos].config(command=None)
 
-
-        tk.Button(abilityFrame, text='Roll', command=lambda: self.abilityRolls(rollFrame, chrDetails, lblAbilityScores, lblTotals, lblRolls, cbxAbilities), bg='SteelBlue4').grid(row=11, column=0, padx=10, pady=5, sticky='w')
+        tk.Button(abilityFrame, text='Roll', command=lambda: self.abilityRolls(lblAbilityScores, lblTotals, lblRolls, cbxAbilities, appliedRaceBonuses, appliedSubraceBonuses), bg='SteelBlue4').grid(row=11, column=0, padx=10, pady=5, sticky='w')
         tk.Button(createChar, text='Apply', command=lambda: self.createCharacter(chrDetails, entryDetails, raceVar, subraceVar, classVar, lblAbilityScores, createChar), bg='SteelBlue4').grid(row=4, column=0, padx=10, pady=5, sticky='w')
     
     def createCharacter(self, chrDetails, entryDetails, raceVar, subraceVar, classVar, lblAbilityScores, createChar ):
