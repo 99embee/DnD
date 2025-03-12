@@ -96,7 +96,7 @@ def load_races_from_json(filename):
                                     'size': race.get('size', 'Medium'),
                                     'age': race.get('age', 'Unknown'),
                                     'speed': race.get('speed', 30),
-                                    'ability': {k: v for ability in race.get('ability', []) for k, v in ability.items()},
+                                    'ability': [{k: v for ability in race.get('ability', []) for k, v in ability.items()}],
                                     'languages': race.get('languages', []),
                                     'features': race.get('entries', []),
                                     'traitTags': race.get('traitTags', []),

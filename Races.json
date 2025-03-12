@@ -328,13 +328,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -395,13 +397,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -462,13 +466,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -529,13 +535,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -596,13 +604,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -663,13 +673,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -730,13 +742,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -797,13 +811,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -864,13 +880,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -931,13 +949,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1107,13 +1127,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1172,13 +1194,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1237,13 +1261,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1302,13 +1328,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1367,13 +1395,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1432,13 +1462,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1497,13 +1529,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1562,13 +1596,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1627,13 +1663,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1692,13 +1730,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1866,13 +1906,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1931,13 +1973,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -1996,13 +2040,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2061,13 +2107,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2126,13 +2174,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2191,13 +2241,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2256,13 +2308,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2321,13 +2375,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2386,13 +2442,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
@@ -2451,13 +2509,15 @@
                     ],
                     "age": "Unknown",
                     "speed": 30,
-                    "ability": {
-                        "str": 1,
-                        "con": 2,
-                        "int": -6,
-                        "wis": -4,
-                        "cha": -4
-                    },
+                    "ability": [
+                        {
+                            "str": 1,
+                            "con": 2,
+                            "int": -6,
+                            "wis": -4,
+                            "cha": -4
+                        }
+                    ],
                     "languages": [],
                     "features": [
                         {
