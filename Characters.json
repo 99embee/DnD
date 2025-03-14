@@ -21,6 +21,14 @@
                     "Intelligence": 5,
                     "Wisdom": 11,
                     "Charisma": 10
+                },
+                "Modifiers": {
+                    "Strength": -2,
+                    "Dexterity": -1,
+                    "Constitution": -3,
+                    "Intelligence": -3,
+                    "Wisdom": 0,
+                    "Charisma": 0
                 }
             },
             "Extra": {
@@ -122,6 +130,14 @@
                     "Intelligence": 9,
                     "Wisdom": 11,
                     "Charisma": 10
+                },
+                "Modifiers": {
+                    "Strength": 2,
+                    "Dexterity": 1,
+                    "Constitution": 1,
+                    "Intelligence": 0,
+                    "Wisdom": 0,
+                    "Charisma": 0
                 }
             },
             "Extra": {
@@ -217,6 +233,14 @@
                     "Intelligence": 11,
                     "Wisdom": 11,
                     "Charisma": 15
+                },
+                "Modifiers": {
+                    "Strength": 1,
+                    "Dexterity": -1,
+                    "Constitution": -1,
+                    "Intelligence": 0,
+                    "Wisdom": 0,
+                    "Charisma": 2
                 }
             },
             "Extra": {
@@ -309,6 +333,14 @@
                     "Intelligence": 11,
                     "Wisdom": 11,
                     "Charisma": 12
+                },
+                "Modifiers": {
+                    "Strength": 4,
+                    "Dexterity": 2,
+                    "Constitution": 3,
+                    "Intelligence": 0,
+                    "Wisdom": 0,
+                    "Charisma": 1
                 }
             },
             "Extra": {
@@ -402,6 +434,14 @@
                     "Intelligence": 9,
                     "Wisdom": 12,
                     "Charisma": 12
+                },
+                "Modifiers": {
+                    "Strength": 3,
+                    "Dexterity": 1,
+                    "Constitution": 3,
+                    "Intelligence": -1,
+                    "Wisdom": 1,
+                    "Charisma": 1
                 }
             },
             "Extra": {
@@ -467,9 +507,15 @@
                     "Silver": 0,
                     "Copper": 0
                 },
-                "Equipped Weapon": {},
+                "Equipped Weapon": {
+                    "Weapon Name": "Longsword",
+                    "Attack Dice": "1d8"
+                },
                 "Weapons": [],
-                "Equipped Armour": {},
+                "Equipped Armour": {
+                    "Armour Name": "Breastplace",
+                    "AC": 14
+                },
                 "Armour": [],
                 "Items": []
             }

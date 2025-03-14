@@ -1,10 +1,19 @@
 TO DO: 
 
+
+# finish redesining the character creation window. 
+The notebook style is the uniform style from now on. 
+
+
+
+
+
+
+
+
 # make ability modifiers actually do something
 # create saving throws
 # create ability throws ( str, dex, ,...)
 # Create the proficencies and have the ability modifiers affect those proficencies 
  
 
-# a cleaner way to show lblChoice
- 

@@ -72,6 +72,7 @@ class Character:
                         'Abilities':{'Strength' : self.Strength,
                                      'Dexterity' : self.Dexterity, 'Constitution' : self.Constitution, 
                                      'Intelligence' : self.Intelligence, 'Wisdom' : self.Wisdom, 'Charisma' : self.Charisma}},
+                        'Modifiers' : self.modifiers,
                         'Extra' : {'Alignment' : '', 'Background' : '', 'Personality' : '', 'Ideals' : '', 'Bonds' : '', 'Flaws' : ''},
                         'Details' : {'Feats' : [], 'Spells' : {'Cantrips' : {}, 
                                                                '1st Level': {'1st Spell Slots': {}, '1st lvl Spells': {}},
