@@ -426,6 +426,7 @@
                 "Race": "Human",
                 "Subrace": "Variant",
                 "Class": "Barbarian",
+                "Subclass": "Path of the Totem Warrior",
                 "Health": 11,
                 "Abilities": {
                     "Strength": 17,
