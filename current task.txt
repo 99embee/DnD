@@ -5,11 +5,16 @@ TO DO:
 The notebook style is the uniform style from now on. 
 
 
+# add buttons to class, subclass, race, subrace, ... in the character sheet. 
+# They should open a top level window. 
+
+# display the class, race, subrace details in character creation. 
+
+# display the class table in one tab of a notebook format, another tab would be the starting details. 
 
 
-
-
-
+# eventually create the item class with swords, armour, potions etc. 
+# on character creation when selecting starting equipment - open a 'shop' that references starting items
 
 # make ability modifiers actually do something
 # create saving throws

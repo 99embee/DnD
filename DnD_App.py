@@ -6,7 +6,8 @@ import random
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-import textwrap
+import re
+import pandas as pd
 
 class DnD_App:
     def __init__(self, root):
@@ -65,10 +66,12 @@ class DnD_App:
 
         AC = plyrInventory['Equipped Armour']['AC']
 
-        stats = [('Level', attribute['Level']), ('Experience', attribute['Experience']), ('Name', attribute['Name']), ('Race', attribute['Race']), ('Class', attribute['Class']),
-                 ('Health', attribute['Health']), ('AC', AC), ('Strength', abilities['Strength']), ('Dexterity', abilities['Dexterity']),
-                 ('Constitution', abilities['Constitution']), ('Intelligence', abilities['Intelligence']), ('Wisdom', abilities['Wisdom']),
-                 ('Charisma', abilities['Charisma'])]
+        stats = [('Level', attribute['Level']), ('Experience', attribute['Experience']), ('Name', attribute['Name']),
+                 ('Race', attribute['Race']), ('Subrace', attribute['Subrace']), ('Class', attribute['Class']),
+                 ('Subclass', attribute['Subclass']), ('Health', attribute['Health']), ('AC', AC), 
+                 ('Strength', abilities['Strength']), ('Dexterity', abilities['Dexterity']), 
+                 ('Constitution', abilities['Constitution']), ('Intelligence', abilities['Intelligence']), 
+                 ('Wisdom', abilities['Wisdom']), ('Charisma', abilities['Charisma'])]
 
         for i, (stat, value) in enumerate(stats):
             tk.Label(characterTab, text=stat, bg='light grey', font=('Helvetica', 12)).grid(row=i, column=0, padx=10, pady=5, sticky='w')
@@ -185,6 +188,97 @@ class DnD_App:
 
         class_classes = Class.load_classes()
         classMenu['values'] = class_classes
+
+        classNotebook = ttk.Notebook(nameClassTab)
+        classNotebook.grid(row=4, column=0, padx=10, columnspan=2, pady=5, sticky='w')
+
+        lblClassTitle = tk.Label(nameClassTab, text='Class', bg='SteelBlue4', font=('Helvetica', 12))
+        lblClassTitle.grid(row=3, column=0, padx=10, pady=5, sticky='w')
+
+        classDetails = tk.Frame(classNotebook, bg='SteelBlue4', bd=2, relief='solid')
+        classDetails.grid(row=3, column=0, columnspan=2, padx=20, pady=20, sticky='nsew')
+        classTable = tk.Frame(classNotebook, bg='SteelBlue4', bd=2, relief='solid')
+        classTable.grid(row=3, column=0, columnspan=2, padx=20, pady=20, sticky='nsew')
+        classNotebook.add(classDetails, text='Class Details')
+        classNotebook.add(classTable, text='Class Table')
+        
+        def displayClassDetails(event):
+            class_name = classVar.get()
+            class_data = Class.get_class_data(class_name)
+            lblClassTitle.config(text=class_name)
+            starting_proficiencies = class_data.get('startingProficiencies', {})
+            
+            # print(class_data)
+            lblClassHitDice = tk.Label(classDetails, text=f"Hit Dice: {class_data['hit_dice']}", bg='SteelBlue4', font=('Helvetica', 12))
+            lblClassHitDice.grid(row=1, column=0, padx=10, pady=5, sticky='w')
+            lblClassProficiency = tk.Label(classDetails, text=f"Proficiency: {', '.join(class_data['proficiency'])}", bg='SteelBlue4', font=('Helvetica', 12))
+            lblClassProficiency.grid(row=2, column=0, padx=10, pady=5, sticky='w')
+            lblClassStartArmour = tk.Label(classDetails, text=f"Starting Armour: {', '.join(class_data['startingProficiencies']['armor'])}", bg='SteelBlue4', font=('Helvetica', 12))
+            lblClassStartArmour.grid(row=3, column=0, padx=10, pady=5, sticky='w')
+            lblClassStartWeapons = tk.Label(classDetails, text=f"Starting Weapons: {', '.join(class_data['startingProficiencies']['weapons'])}", bg='SteelBlue4', font=('Helvetica', 12))
+            lblClassStartWeapons.grid(row=4, column=0, padx=10, pady=5, sticky='w')
+            for item in starting_proficiencies.get('skills', []):
+                skills = item['choose']['from']
+                count = item['choose']['count']
+                skill_proficiencies = f"Choose {count} from:\n{', '.join(skills)}"
+            lblClassStartSkills = tk.Label(classDetails, text=f"Starting Skills: {skill_proficiencies}", bg='SteelBlue4', font=('Helvetica', 12))
+            lblClassStartSkills.grid(row=5, column=0, padx=10, pady=5, sticky='w')
+            
+            # Process starting equipment
+            starting_equipment = class_data['startingEquipment']['default']
+            processed_equipment = []
+            for item in starting_equipment:
+                item = re.sub(r'\{@item (.*?)\|.*?\}', r'\1', item)  # Replace {@item ...} with the item name
+                item = re.sub(r'\{@filter (.*?)\|.*?\}', r'\1', item)  # Replace {@filter ...} with the filter description
+                processed_equipment.append(item)
+            goldAlt = re.sub(r'\{@dice (.*?)\|.*?\}', r'\1',  class_data['startingEquipment']['goldAlternative']) # Replace {@dice ...} with the dice roll
+            processed_equipment.append(f"Alternatively, you can use {goldAlt} gold to purchase your own equipment.")
+            lblClassStartingEquipment = tk.Label(classDetails, text=f"Starting Equipment:\n{'\n'.join(processed_equipment)}", bg='SteelBlue4', font=('Helvetica', 12))
+            lblClassStartingEquipment.grid(row=6, column=0, padx=10, pady=5, sticky='w')
+
+            # Process class table
+            data = class_data.get('classTableGroups', [])
+            # print(data)
+            headers = data.get('headers', [])
+            features = data.get('features',[])
+            rows = data.get('rows', [])
+            spells = data.get('spells',[])
+
+            # Initialize the details dictionary
+            details = {header: [] for header in headers}
+
+            # Iterate through rows and append values to details
+            for row in rows:
+                for header, value in zip(headers, row):
+                    details[header].append(value)
+
+            # If there are spells, iterate through spells and append values to details
+            if spells:
+                for spell_row in spells:
+                    for header, value in zip(headers, spell_row):
+                        details[header].append(value)
+
+            # Print grouped features
+            for level, feature_list in features.items():
+                print(f"Level {level}: {', '.join(feature_list)}")
+
+            # Create DataFrames
+            df_class_table = pd.DataFrame(details)
+            df_default_features = pd.DataFrame(features, columns=['Class Feature', 'Class', 'Subclass', 'Level'])
+
+            # Display DataFrames in classTable
+            for widget in classTable.winfo_children():
+                widget.destroy()
+
+            class_table_text = df_class_table.to_string(index=False)
+            default_features_text = df_default_features.to_string(index=False)
+
+            lblClassTable = tk.Label(classTable, text=class_table_text, bg='SteelBlue4', font=('Helvetica', 12), justify='left')
+            lblClassTable.pack(padx=10, pady=5, anchor='w')
+
+            lblDefaultFeatures = tk.Label(classTable, text=default_features_text, bg='SteelBlue4', font=('Helvetica', 12), justify='left')
+            lblDefaultFeatures.pack(padx=10, pady=5, anchor='w')
+        
 
         # Background Tab
         backgroundTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')
@@ -309,11 +403,8 @@ class DnD_App:
             # displayRaceDetails(event, 'race')
 
         raceMenu.bind("<<ComboboxSelected>>", onRaceSelected)
-        # classMenu.bind("<<ComboboxSelected>>", displayClassDetails)
+        classMenu.bind("<<ComboboxSelected>>", displayClassDetails)
         subraceMenu.bind("<<ComboboxSelected>>", lambda event: applySubracialBonuses())
-
-
-        # raceMenu.bind("<<ComboboxSelected>>", updateSubraces)
 
         # Dice Roll and Abilities Tab
         diceAbilitiesTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')
@@ -331,9 +422,6 @@ class DnD_App:
             lblAbilityScores[pos].grid(row=2, column=i, padx=1, pady=1, sticky='')
             btnBonuses[pos] = tk.Button(diceAbilitiesTab, text=0, bg='SteelBlue4', font=('Helvetica', 12))
             btnBonuses[pos].grid(row=3, column=i, padx=1, pady=1, sticky='')
-
-        # rollFrame = tk.Frame(diceAbilitiesTab, bg='light grey', bd=2, relief='solid')
-        # rollFrame.grid(row=4, column=0, columnspan=3, padx=20, pady=20, sticky='nsew')
 
         lblTotals = {}
         lblRolls = {}
@@ -397,9 +485,7 @@ class DnD_App:
                     btnBonuses[pos].config(text="+1", command=lambda pos=pos: allocateAbilityPoint(pos))
                 else:
                     btnBonuses[pos].config(command=None)
-
-
-
+        
         tk.Button(diceAbilitiesTab, text='Roll', command=lambda: self.abilityRolls(lblAbilityScores, lblTotals, lblRolls, cbxAbilities, appliedRaceBonuses, appliedSubraceBonuses), bg='SteelBlue4', font=('Helvetica', 12)).grid(row=11, column=0, padx=10, pady=5, sticky='w')
 
         # Equipment Tab
@@ -474,7 +560,7 @@ class DnD_App:
 
             player = Character.Character.load(name, race, char_class)
             if player:
-                print(player)
+                # print(player)
                 plyr = {
                     'Attributes': {
                         'ID': player['Attributes']['ID'],

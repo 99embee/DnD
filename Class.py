@@ -1,5 +1,6 @@
 import json
 import os
+import re
 
 class CharacterClass:
     def __init__(self, name, hit_die, primary_ability, saving_throws, proficiencies, source, class_features, subclass, subclass_features):
@@ -56,6 +57,90 @@ def get_subclass_data(class_name, subclass_name):
             return class_data.get('subclasses', {}).get(subclass_name, None)
         return None
 
+def getClassTableGroups(cls):
+
+    headers = ['Level', 'Proficiency Bonus', 'Features']
+    rows = {}
+    spells = {}
+
+    for table in cls.get('classTableGroups', []):
+        col_labels = table.get('colLabels', [])
+        # Use re.sub to replace @filter text in colLabels
+        col_labels = [re.sub(r'\{@filter (.*?)\|.*?\}', r'\1', label) for label in col_labels]
+        # print(f"Processing class: {cls['name']}")
+        if len(headers) == 3:  # Extend headers only once
+            headers.extend(col_labels)
+
+        # print(f"table rows {table.get('rows')}")
+        # print("\n")
+
+        if table.get('rows', []):
+            for i, row in enumerate(table['rows']):
+                level = i + 1
+                rows[level] = []
+                for item in row:
+                    if isinstance(item, dict):
+                        # print(f"dict item {item}")
+                        if item.get('type') == 'bonus':
+                            rows[level].append(f"+{item['value']}")
+                    else:
+                        rows[level].append(item)
+                # Ensure bonus values are added after the items
+                # for item in row:
+                #     if isinstance(item, dict) and item.get('type') == 'bonus':
+                #         rows[level].append(f"+{item['value']}")
+
+        if table.get('rowsSpellProgression', []):
+            for i, spell_row in enumerate(table.get('rowsSpellProgression', [])):
+                level = i + 1
+                spells[level] = [0] * (len(col_labels))  # Initialize with zeros
+                for j, item in enumerate(spell_row):
+                    spells[level][j] = item
+
+    # Convert sets to lists
+    rows = {level: list(features) for level, features in rows.items()}
+    spells = {level: spell_progression for level, spell_progression in spells.items()}
+
+    features = getClassFeatures(cls)
+
+    classTableGroups = {
+        'headers': headers,
+        'features': features,
+        'rows': rows,
+        'spells': spells
+    }
+
+    return classTableGroups
+
+def getClassFeatures(cls):
+    details = []
+    groupedFeature = {}
+    for feature in cls.get('classFeatures', []):
+        if isinstance(feature, dict):
+            item = feature.get('classFeature', '')
+            # print("before split ",item)
+            item = item.split('|')
+            # print("after split ",item)
+        else:
+            item = feature.split('|')
+
+        # item = feature.split('|')
+        details.append(item)
+        # print(details)
+    
+    for data in details:
+        feature = data[0]
+        level = data[3]
+        if level not in groupedFeature:
+            groupedFeature[level] = set()
+        groupedFeature[level].add(feature)
+
+    # Convert sets to lists
+    groupedFeature = {level: list(features) for level, features in groupedFeature.items()}
+    
+
+    return groupedFeature
+
 def load_classes_from_json(directory):
     details = {} 
     details['class'] = {}
@@ -76,8 +161,10 @@ def load_classes_from_json(directory):
                             'startingProficiencies': cls['startingProficiencies'],
                             'startingEquipment': cls['startingEquipment'],
                             'multiclassing': cls['multiclassing'],
-                            'classTableGroups': cls.get('classTableGroups'),
-                            'defaultClassFeatures': cls['classFeatures'],
+                            'classTableGroups': getClassTableGroups(cls),
+                            # 'classTableGroups': cls.get('classTableGroups'),
+                            # 'defaultClassFeatures': getClassFeatures(cls),
+                            # 'defaultClassFeatures': cls['classFeatures'],
                             'classFeature': [],
                             'subclasses': {}
                         }
