@@ -102,9 +102,11 @@ def getClassTableGroups(cls):
     spells = {level: spell_progression for level, spell_progression in spells.items()}
 
     features = getClassFeatures(cls)
+    proficiencyBonuses = ['+2','+2','+2','+2', '+3','+3','+3','+3', '+4','+4','+4','+4', '+5','+5','+5','+5', '+6','+6','+6','+6']
 
     classTableGroups = {
         'headers': headers,
+        'proficiency bonuses': proficiencyBonuses,
         'features': features,
         'rows': rows,
         'spells': spells
@@ -115,6 +117,7 @@ def getClassTableGroups(cls):
 def getClassFeatures(cls):
     details = []
     groupedFeature = {}
+    expectedLevels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
     for feature in cls.get('classFeatures', []):
         if isinstance(feature, dict):
             item = feature.get('classFeature', '')
@@ -127,17 +130,22 @@ def getClassFeatures(cls):
         # item = feature.split('|')
         details.append(item)
         # print(details)
-    
     for data in details:
         feature = data[0]
-        level = data[3]
+        level = int(data[3])
+        # print(f"level {level}")
         if level not in groupedFeature:
             groupedFeature[level] = set()
         groupedFeature[level].add(feature)
+        
+    # Ensure all expected levels are present in groupedFeature
+    for level in expectedLevels:
+        if level not in groupedFeature:
+            groupedFeature[level] = {"---"}  # Add a default value for missing levels
 
     # Convert sets to lists
     groupedFeature = {level: list(features) for level, features in groupedFeature.items()}
-    
+    groupedFeature = dict(sorted(groupedFeature.items()))
 
     return groupedFeature
 

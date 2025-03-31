@@ -206,8 +206,16 @@ class DnD_App:
             class_name = classVar.get()
             class_data = Class.get_class_data(class_name)
             lblClassTitle.config(text=class_name)
+
+            # Clear previous content in the classDetails frame
+            for widget in classDetails.winfo_children():
+                widget.destroy()
+
+            # Clear previous content in the classTable frame
+            for widget in classTable.winfo_children():
+                widget.destroy()
+
             starting_proficiencies = class_data.get('startingProficiencies', {})
-            
             # print(class_data)
             lblClassHitDice = tk.Label(classDetails, text=f"Hit Dice: {class_data['hit_dice']}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassHitDice.grid(row=1, column=0, padx=10, pady=5, sticky='w')
@@ -215,12 +223,26 @@ class DnD_App:
             lblClassProficiency.grid(row=2, column=0, padx=10, pady=5, sticky='w')
             lblClassStartArmour = tk.Label(classDetails, text=f"Starting Armour: {', '.join(class_data['startingProficiencies']['armor'])}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassStartArmour.grid(row=3, column=0, padx=10, pady=5, sticky='w')
-            lblClassStartWeapons = tk.Label(classDetails, text=f"Starting Weapons: {', '.join(class_data['startingProficiencies']['weapons'])}", bg='SteelBlue4', font=('Helvetica', 12))
+
+            # Decode starting weapons
+            starting_weapons = class_data['startingProficiencies']['weapons']
+            decoded_weapons = []
+            # if '@' in starting_weapons:
+            for weapon in starting_weapons:
+                # Replace {@item ...} with the item name
+                weapon = re.sub(r'\{@item (.*?)\|.*?\}', r'\1', weapon)
+                decoded_weapons.append(weapon)
+
+            lblClassStartWeapons = tk.Label(classDetails, text=f"Starting Weapons: {', '.join(decoded_weapons)}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassStartWeapons.grid(row=4, column=0, padx=10, pady=5, sticky='w')
             for item in starting_proficiencies.get('skills', []):
-                skills = item['choose']['from']
-                count = item['choose']['count']
-                skill_proficiencies = f"Choose {count} from:\n{', '.join(skills)}"
+                # print(item)
+                if 'choose' in item:
+                    skills = item['choose']['from']
+                    count = item['choose']['count']
+                    skill_proficiencies = f"Choose {count} from:\n{', '.join(skills)}"
+                else:
+                    skill_proficiencies = item
             lblClassStartSkills = tk.Label(classDetails, text=f"Starting Skills: {skill_proficiencies}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassStartSkills.grid(row=5, column=0, padx=10, pady=5, sticky='w')
             
@@ -240,45 +262,87 @@ class DnD_App:
             data = class_data.get('classTableGroups', [])
             # print(data)
             headers = data.get('headers', [])
+            profBons = data.get('proficiency bonuses', [])
             features = data.get('features',[])
             rows = data.get('rows', [])
             spells = data.get('spells',[])
 
+            spellHeaders = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th']
+            if spells:
+                headers.extend(spellHeaders)
+
             # Initialize the details dictionary
             details = {header: [] for header in headers}
 
-            # Iterate through rows and append values to details
-            for row in rows:
-                for header, value in zip(headers, row):
-                    details[header].append(value)
+            classHeaders = headers[3:]
 
-            # If there are spells, iterate through spells and append values to details
+            for value in profBons:
+                details['Proficiency Bonus'].append(value)
+
+            for level in rows.keys():
+                details['Level'].append(level)
+                rowData = rows[level]
+                for column, value in zip(classHeaders, rowData):
+                    details[column].append(value)
+
+            for values in features.values():
+                details['Features'].append(values)
+
+            def get_ordinal_suffix(n):
+                if 11 <= n % 100 <= 13:
+                    return 'th'
+                if n % 10 == 1:
+                    return 'st'
+                if n % 10 == 2:
+                    return 'nd'
+                if n % 10 == 3:
+                    return 'rd'
+                return 'th'
+
             if spells:
-                for spell_row in spells:
-                    for header, value in zip(headers, spell_row):
-                        details[header].append(value)
+                # print(spells)
+                for values in spells.values():
+                    for spLevel,value in enumerate(values):
+                        spLevel = spLevel+1
+                        spLevel_with_suffix = f"{spLevel}{get_ordinal_suffix(spLevel)}"  # Add the ordinal suffix
+                        if spLevel_with_suffix in spellHeaders:  # Check if it matches a spell header
+                            details[spLevel_with_suffix].append(value)
 
-            # Print grouped features
-            for level, feature_list in features.items():
-                print(f"Level {level}: {', '.join(feature_list)}")
+            # print(details)
 
-            # Create DataFrames
-            df_class_table = pd.DataFrame(details)
-            df_default_features = pd.DataFrame(features, columns=['Class Feature', 'Class', 'Subclass', 'Level'])
+            df= pd.DataFrame(details)
 
-            # Display DataFrames in classTable
+            # Clear any existing content in the classTable frame
             for widget in classTable.winfo_children():
                 widget.destroy()
 
-            class_table_text = df_class_table.to_string(index=False)
-            default_features_text = df_default_features.to_string(index=False)
+            # Create a Treeview widget
+            # visible_columns = df.columns[:5]  # Display only the first 5 columns
+            tree = ttk.Treeview(classTable, columns=list(df.columns), show="headings", height=20)
 
-            lblClassTable = tk.Label(classTable, text=class_table_text, bg='SteelBlue4', font=('Helvetica', 12), justify='left')
-            lblClassTable.pack(padx=10, pady=5, anchor='w')
+            # Add column headers
+            for col in df.columns:
+                tree.heading(col, text=col)
+                tree.column(col, anchor="center", width=40)  # Limit to MAX_COLUMN_WIDTH
 
-            lblDefaultFeatures = tk.Label(classTable, text=default_features_text, bg='SteelBlue4', font=('Helvetica', 12), justify='left')
-            lblDefaultFeatures.pack(padx=10, pady=5, anchor='w')
-        
+            # Add rows to the Treeview
+            for index, row in df.iterrows():
+                tree.insert("", "end", values=list(row))
+
+            # Add vertical scrollbar
+            v_scrollbar = ttk.Scrollbar(classTable, orient="vertical", command=tree.yview)
+            tree.configure(yscrollcommand=v_scrollbar.set)
+            v_scrollbar.pack(side="right", fill="y")
+
+            # Add horizontal scrollbar
+            h_scrollbar = ttk.Scrollbar(classTable, orient="horizontal", command=tree.xview)
+            tree.configure(xscrollcommand=h_scrollbar.set)
+            h_scrollbar.pack(side="bottom", fill="x")
+
+            # Pack the Treeview
+            tree.pack(fill="y", expand=True)
+
+           
 
         # Background Tab
         backgroundTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')

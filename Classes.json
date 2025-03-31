@@ -122,18 +122,40 @@
                     "Infused Items",
                     "Cantrips Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Spellcasting",
-                        "Optional Rule: Firearm Proficiency",
-                        "Magical Tinkering"
+                        "Magical Tinkering",
+                        "Optional Rule: Firearm Proficiency"
                     ],
                     "2": [
                         "Infuse Item"
                     ],
                     "3": [
-                        "The Right Tool for the Job",
-                        "Artificer Specialist"
+                        "Artificer Specialist",
+                        "The Right Tool for the Job"
                     ],
                     "4": [
                         "Ability Score Improvement"
@@ -162,6 +184,9 @@
                     "12": [
                         "Ability Score Improvement"
                     ],
+                    "13": [
+                        "---"
+                    ],
                     "14": [
                         "Magic Item Savant"
                     ],
@@ -170,6 +195,9 @@
                     ],
                     "16": [
                         "Ability Score Improvement"
+                    ],
+                    "17": [
+                        "---"
                     ],
                     "18": [
                         "Magic Item Master"
@@ -1747,25 +1775,47 @@
                     "Rages",
                     "Rage Damage"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
-                        "Unarmored Defense",
-                        "Rage"
+                        "Rage",
+                        "Unarmored Defense"
                     ],
                     "2": [
-                        "Reckless Attack",
-                        "Danger Sense"
+                        "Danger Sense",
+                        "Reckless Attack"
                     ],
                     "3": [
-                        "Primal Knowledge",
-                        "Primal Path"
+                        "Primal Path",
+                        "Primal Knowledge"
                     ],
                     "4": [
                         "Ability Score Improvement"
                     ],
                     "5": [
-                        "Fast Movement",
-                        "Extra Attack"
+                        "Extra Attack",
+                        "Fast Movement"
                     ],
                     "6": [
                         "Path Feature"
@@ -4013,14 +4063,36 @@
                     "Cantrips Known",
                     "Spells Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Spellcasting",
                         "Bardic Inspiration"
                     ],
                     "2": [
-                        "Magical Inspiration",
                         "Song of Rest (d6)",
+                        "Magical Inspiration",
                         "Jack of All Trades"
                     ],
                     "3": [
@@ -4028,16 +4100,19 @@
                         "Bard College"
                     ],
                     "4": [
-                        "Ability Score Improvement",
-                        "Bardic Versatility"
+                        "Bardic Versatility",
+                        "Ability Score Improvement"
                     ],
                     "5": [
-                        "Font of Inspiration",
-                        "Bardic Inspiration (d8)"
+                        "Bardic Inspiration (d8)",
+                        "Font of Inspiration"
                     ],
                     "6": [
                         "Bard College feature",
                         "Countercharm"
+                    ],
+                    "7": [
+                        "---"
                     ],
                     "8": [
                         "Ability Score Improvement"
@@ -4050,6 +4125,9 @@
                         "Expertise",
                         "Bardic Inspiration (d10)"
                     ],
+                    "11": [
+                        "---"
+                    ],
                     "12": [
                         "Ability Score Improvement"
                     ],
@@ -4057,8 +4135,8 @@
                         "Song of Rest (d10)"
                     ],
                     "14": [
-                        "Magical Secrets",
-                        "Bard College feature"
+                        "Bard College feature",
+                        "Magical Secrets"
                     ],
                     "15": [
                         "Bardic Inspiration (d12)"
@@ -6308,31 +6386,62 @@
                     "Features",
                     "Cantrips Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
-                        "Divine Domain",
-                        "Spellcasting"
+                        "Spellcasting",
+                        "Divine Domain"
                     ],
                     "2": [
+                        "Divine Domain feature",
                         "Channel Divinity: Harness Divine Power",
-                        "Channel Divinity",
-                        "Divine Domain feature"
+                        "Channel Divinity"
+                    ],
+                    "3": [
+                        "---"
                     ],
                     "4": [
-                        "Ability Score Improvement",
-                        "Cantrip Versatility"
+                        "Cantrip Versatility",
+                        "Ability Score Improvement"
                     ],
                     "5": [
                         "Destroy Undead (CR 1/2)"
                     ],
                     "6": [
-                        "Channel Divinity",
-                        "Divine Domain feature"
+                        "Divine Domain feature",
+                        "Channel Divinity"
+                    ],
+                    "7": [
+                        "---"
                     ],
                     "8": [
-                        "Destroy Undead (CR 1)",
+                        "Divine Domain feature",
                         "Ability Score Improvement",
-                        "Divine Domain feature"
+                        "Destroy Undead (CR 1)"
+                    ],
+                    "9": [
+                        "---"
                     ],
                     "10": [
                         "Divine Intervention"
@@ -6343,15 +6452,21 @@
                     "12": [
                         "Ability Score Improvement"
                     ],
+                    "13": [
+                        "---"
+                    ],
                     "14": [
                         "Destroy Undead (CR 3)"
+                    ],
+                    "15": [
+                        "---"
                     ],
                     "16": [
                         "Ability Score Improvement"
                     ],
                     "17": [
-                        "Destroy Undead (CR 4)",
-                        "Divine Domain feature"
+                        "Divine Domain feature",
+                        "Destroy Undead (CR 4)"
                     ],
                     "18": [
                         "Channel Divinity"
@@ -11813,39 +11928,85 @@
                     "Features",
                     "Cantrips Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Spellcasting",
                         "Druidic"
                     ],
                     "2": [
-                        "Druid Circle",
                         "Wild Shape",
-                        "Wild Companion"
+                        "Wild Companion",
+                        "Druid Circle"
+                    ],
+                    "3": [
+                        "---"
                     ],
                     "4": [
+                        "Cantrip Versatility",
                         "Wild Shape Improvement",
-                        "Ability Score Improvement",
-                        "Cantrip Versatility"
+                        "Ability Score Improvement"
+                    ],
+                    "5": [
+                        "---"
                     ],
                     "6": [
                         "Druid Circle feature"
+                    ],
+                    "7": [
+                        "---"
                     ],
                     "8": [
                         "Wild Shape Improvement",
                         "Ability Score Improvement"
                     ],
+                    "9": [
+                        "---"
+                    ],
                     "10": [
                         "Druid Circle feature"
+                    ],
+                    "11": [
+                        "---"
                     ],
                     "12": [
                         "Ability Score Improvement"
                     ],
+                    "13": [
+                        "---"
+                    ],
                     "14": [
                         "Druid Circle feature"
                     ],
+                    "15": [
+                        "---"
+                    ],
                     "16": [
                         "Ability Score Improvement"
+                    ],
+                    "17": [
+                        "---"
                     ],
                     "18": [
                         "Timeless Body",
@@ -15102,6 +15263,28 @@
                     "Proficiency Bonus",
                     "Features"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Fighting Style",
@@ -17994,38 +18177,60 @@
                     "Ki Points",
                     "Unarmored Movement"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Unarmored Defense",
                         "Martial Arts"
                     ],
                     "2": [
-                        "Dedicated Weapon",
                         "Ki",
-                        "Unarmored Movement"
+                        "Unarmored Movement",
+                        "Dedicated Weapon"
                     ],
                     "3": [
-                        "Monastic Tradition",
                         "Ki-Fueled Attack",
-                        "Deflect Missiles"
+                        "Deflect Missiles",
+                        "Monastic Tradition"
                     ],
                     "4": [
+                        "Quickened Healing",
                         "Slow Fall",
-                        "Ability Score Improvement",
-                        "Quickened Healing"
+                        "Ability Score Improvement"
                     ],
                     "5": [
-                        "Focused Aim",
                         "Extra Attack",
-                        "Stunning Strike"
+                        "Stunning Strike",
+                        "Focused Aim"
                     ],
                     "6": [
-                        "Ki-Empowered Strikes",
-                        "Monastic Tradition feature"
+                        "Monastic Tradition feature",
+                        "Ki-Empowered Strikes"
                     ],
                     "7": [
-                        "Stillness of Mind",
-                        "Evasion"
+                        "Evasion",
+                        "Stillness of Mind"
                     ],
                     "8": [
                         "Ability Score Improvement"
@@ -20557,15 +20762,37 @@
                     "4th",
                     "5th"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Divine Sense",
                         "Lay on Hands"
                     ],
                     "2": [
+                        "Spellcasting",
                         "Fighting Style",
-                        "Divine Smite",
-                        "Spellcasting"
+                        "Divine Smite"
                     ],
                     "3": [
                         "Sacred Oath",
@@ -20587,6 +20814,9 @@
                     "8": [
                         "Ability Score Improvement"
                     ],
+                    "9": [
+                        "---"
+                    ],
                     "10": [
                         "Aura of Courage"
                     ],
@@ -20596,6 +20826,9 @@
                     "12": [
                         "Ability Score Improvement"
                     ],
+                    "13": [
+                        "---"
+                    ],
                     "14": [
                         "Cleansing Touch"
                     ],
@@ -20604,6 +20837,9 @@
                     ],
                     "16": [
                         "Ability Score Improvement"
+                    ],
+                    "17": [
+                        "---"
                     ],
                     "18": [
                         "Aura improvements"
@@ -24207,16 +24443,38 @@
                     "Features",
                     "Spells Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Natural Explorer",
+                        "Favored Enemy",
                         "Favored Foe",
-                        "Deft Explorer",
-                        "Favored Enemy"
+                        "Deft Explorer"
                     ],
                     "2": [
-                        "Fighting Style",
                         "Spellcasting",
+                        "Fighting Style",
                         "Spellcasting Focus"
                     ],
                     "3": [
@@ -24239,20 +24497,26 @@
                         "Ranger Archetype feature"
                     ],
                     "8": [
-                        "Land's Stride",
-                        "Ability Score Improvement"
+                        "Ability Score Improvement",
+                        "Land's Stride"
+                    ],
+                    "9": [
+                        "---"
                     ],
                     "10": [
-                        "Deft Explorer Improvement",
                         "Hide in Plain Sight",
-                        "Natural Explorer improvement",
-                        "Nature's Veil"
+                        "Deft Explorer Improvement",
+                        "Nature's Veil",
+                        "Natural Explorer improvement"
                     ],
                     "11": [
                         "Ranger Archetype feature"
                     ],
                     "12": [
                         "Ability Score Improvement"
+                    ],
+                    "13": [
+                        "---"
                     ],
                     "14": [
                         "Favored Enemy improvement",
@@ -24263,6 +24527,9 @@
                     ],
                     "16": [
                         "Ability Score Improvement"
+                    ],
+                    "17": [
+                        "---"
                     ],
                     "18": [
                         "Feral Senses"
@@ -27152,18 +27419,40 @@
                     "Features",
                     "Sneak Attack"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
-                        "Thieves' Cant",
+                        "Sneak Attack",
                         "Expertise",
-                        "Sneak Attack"
+                        "Thieves' Cant"
                     ],
                     "2": [
                         "Cunning Action"
                     ],
                     "3": [
-                        "Steady Aim",
-                        "Roguish Archetype"
+                        "Roguish Archetype",
+                        "Steady Aim"
                     ],
                     "4": [
                         "Ability Score Improvement"
@@ -29303,6 +29592,28 @@
                     "Features",
                     "Sorcery Points"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
                         "Spellcasting",
@@ -29316,8 +29627,8 @@
                         "Metamagic Options"
                     ],
                     "4": [
-                        "Ability Score Improvement",
-                        "Sorcerous Versatility"
+                        "Sorcerous Versatility",
+                        "Ability Score Improvement"
                     ],
                     "5": [
                         "Magical Guidance"
@@ -29325,17 +29636,32 @@
                     "6": [
                         "Sorcerous Origin feature"
                     ],
+                    "7": [
+                        "---"
+                    ],
                     "8": [
                         "Ability Score Improvement"
+                    ],
+                    "9": [
+                        "---"
                     ],
                     "10": [
                         "Metamagic"
                     ],
+                    "11": [
+                        "---"
+                    ],
                     "12": [
                         "Ability Score Improvement"
                     ],
+                    "13": [
+                        "---"
+                    ],
                     "14": [
                         "Sorcerous Origin feature"
+                    ],
+                    "15": [
+                        "---"
                     ],
                     "16": [
                         "Ability Score Improvement"
@@ -32631,10 +32957,32 @@
                     "Slot Level",
                     "Invocations Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
-                        "Pact Magic",
-                        "Otherworldly Patron"
+                        "Otherworldly Patron",
+                        "Pact Magic"
                     ],
                     "2": [
                         "Eldritch Invocations"
@@ -32646,11 +32994,20 @@
                         "Ability Score Improvement",
                         "Eldritch Versatility"
                     ],
+                    "5": [
+                        "---"
+                    ],
                     "6": [
                         "Otherworldly Patron feature"
                     ],
+                    "7": [
+                        "---"
+                    ],
                     "8": [
                         "Ability Score Improvement"
+                    ],
+                    "9": [
+                        "---"
                     ],
                     "10": [
                         "Otherworldly Patron feature"
@@ -32675,6 +33032,9 @@
                     ],
                     "17": [
                         "Mystic Arcanum (9th level)"
+                    ],
+                    "18": [
+                        "---"
                     ],
                     "19": [
                         "Ability Score Improvement"
@@ -35649,10 +36009,32 @@
                     "Features",
                     "Cantrips Known"
                 ],
+                "proficiency bonuses": [
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+2",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+3",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+4",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+5",
+                    "+6",
+                    "+6",
+                    "+6",
+                    "+6"
+                ],
                 "features": {
                     "1": [
-                        "Arcane Recovery",
-                        "Spellcasting"
+                        "Spellcasting",
+                        "Arcane Recovery"
                     ],
                     "2": [
                         "Arcane Tradition"
@@ -35663,23 +36045,44 @@
                     "4": [
                         "Ability Score Improvement"
                     ],
+                    "5": [
+                        "---"
+                    ],
                     "6": [
                         "Arcane Tradition feature"
+                    ],
+                    "7": [
+                        "---"
                     ],
                     "8": [
                         "Ability Score Improvement"
                     ],
+                    "9": [
+                        "---"
+                    ],
                     "10": [
                         "Arcane Tradition feature"
+                    ],
+                    "11": [
+                        "---"
                     ],
                     "12": [
                         "Ability Score Improvement"
                     ],
+                    "13": [
+                        "---"
+                    ],
                     "14": [
                         "Arcane Tradition feature"
                     ],
+                    "15": [
+                        "---"
+                    ],
                     "16": [
                         "Ability Score Improvement"
+                    ],
+                    "17": [
+                        "---"
                     ],
                     "18": [
                         "Spell Mastery"
