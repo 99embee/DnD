@@ -83,6 +83,13 @@ def getClassTableGroups(cls):
                         # print(f"dict item {item}")
                         if item.get('type') == 'bonus':
                             rows[level].append(f"+{item['value']}")
+                        elif item.get('type') == 'dice':
+                            # print(item.get('toRoll'))
+                            for dice in item['toRoll']:
+                                number = dice['number']
+                                faces = dice['faces']
+                                # print(f"{number}d{faces}")
+                                rows[level].append(f"{number}d{faces}")
                     else:
                         rows[level].append(item)
                 # Ensure bonus values are added after the items

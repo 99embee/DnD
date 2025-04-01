@@ -215,32 +215,75 @@ class DnD_App:
             for widget in classTable.winfo_children():
                 widget.destroy()
 
+            def decode_items(data):
+                decoded_items = []
+                if isinstance(data, list):
+                    # If data is a list, process each item
+                    for item in data:
+                        if isinstance(item, dict):
+                            # If the item is a dictionary, extract relevant fields
+                            if "full" in item:
+                                decoded_items.append(item["full"])  # Use the 'full' field if available
+                            elif "proficiency" in item:
+                                decoded_items.append(item["proficiency"])  # Use the 'proficiency' field as fallback
+                        elif isinstance(item, str):
+                            # Check if the string matches the @item pattern
+                            if re.match(r'\{@item .*?\}', item):
+                                # Decode @item pattern
+                                item = re.sub(r'\{@item (.*?)\|.*?\}', r'\1', item)
+                            # Add the plain string or decoded item to the list
+                            decoded_items.append(item)
+                elif isinstance(data, dict):
+                    # If data is a dict, process its values
+                    for key, item in data.items():
+                        if isinstance(item, dict):
+                            # Handle nested dictionaries
+                            if "full" in item:
+                                decoded_items.append(item["full"])
+                            elif "proficiency" in item:
+                                decoded_items.append(item["proficiency"])
+                        elif isinstance(item, str):
+                            # Check if the string matches the @item pattern
+                            if re.match(r'\{@item .*?\}', item):
+                                # Decode @item pattern
+                                item = re.sub(r'\{@item (.*?)\|.*?\}', r'\1', item)
+                            # Add the plain string or decoded item to the list
+                            decoded_items.append(item)
+                return decoded_items
+
+            def format_list(items, max_items_per_line=4):
+                """
+                Format a list of items into a string with a new line after a certain number of items.
+                """
+                formatted_lines = []
+                for i in range(0, len(items), max_items_per_line):
+                    formatted_lines.append(", ".join(items[i:i + max_items_per_line]))
+                return "\n".join(formatted_lines)
+
             starting_proficiencies = class_data.get('startingProficiencies', {})
             # print(class_data)
             lblClassHitDice = tk.Label(classDetails, text=f"Hit Dice: {class_data['hit_dice']}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassHitDice.grid(row=1, column=0, padx=10, pady=5, sticky='w')
             lblClassProficiency = tk.Label(classDetails, text=f"Proficiency: {', '.join(class_data['proficiency'])}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassProficiency.grid(row=2, column=0, padx=10, pady=5, sticky='w')
-            lblClassStartArmour = tk.Label(classDetails, text=f"Starting Armour: {', '.join(class_data['startingProficiencies']['armor'])}", bg='SteelBlue4', font=('Helvetica', 12))
-            lblClassStartArmour.grid(row=3, column=0, padx=10, pady=5, sticky='w')
 
-            # Decode starting weapons
+            if starting_proficiencies.get('armor'):
+                starting_armour = class_data['startingProficiencies']['armor']
+                decoded_armour = decode_items(starting_armour)
+                lblClassStartArmour = tk.Label(classDetails, text=f"Starting Armour: {', '.join(decoded_armour)}", bg='SteelBlue4', font=('Helvetica', 12))
+                lblClassStartArmour.grid(row=3, column=0, padx=10, pady=5, sticky='w')
+            
             starting_weapons = class_data['startingProficiencies']['weapons']
-            decoded_weapons = []
-            # if '@' in starting_weapons:
-            for weapon in starting_weapons:
-                # Replace {@item ...} with the item name
-                weapon = re.sub(r'\{@item (.*?)\|.*?\}', r'\1', weapon)
-                decoded_weapons.append(weapon)
-
+            decoded_weapons = decode_items(starting_weapons)
             lblClassStartWeapons = tk.Label(classDetails, text=f"Starting Weapons: {', '.join(decoded_weapons)}", bg='SteelBlue4', font=('Helvetica', 12))
             lblClassStartWeapons.grid(row=4, column=0, padx=10, pady=5, sticky='w')
             for item in starting_proficiencies.get('skills', []):
                 # print(item)
                 if 'choose' in item:
                     skills = item['choose']['from']
+                    skills = format_list(skills)
                     count = item['choose']['count']
-                    skill_proficiencies = f"Choose {count} from:\n{', '.join(skills)}"
+                    skill_proficiencies = f"Choose {count} from:\n {skills}"
                 else:
                     skill_proficiencies = item
             lblClassStartSkills = tk.Label(classDetails, text=f"Starting Skills: {skill_proficiencies}", bg='SteelBlue4', font=('Helvetica', 12))
@@ -267,8 +310,10 @@ class DnD_App:
             rows = data.get('rows', [])
             spells = data.get('spells',[])
 
-            spellHeaders = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th']
+            # spellHeaders = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th']
             if spells:
+                max_spell_count = max(len(spell_list) for spell_list in spells.values())  # Find the maximum length of the lists
+                spellHeaders = [f"{i}th" if i > 3 else f"{i}{['st', 'nd', 'rd'][i-1]}" for i in range(1, max_spell_count + 1)]
                 headers.extend(spellHeaders)
 
             # Initialize the details dictionary
@@ -308,7 +353,9 @@ class DnD_App:
                         if spLevel_with_suffix in spellHeaders:  # Check if it matches a spell header
                             details[spLevel_with_suffix].append(value)
 
+            # print()
             # print(details)
+            # print
 
             df= pd.DataFrame(details)
 
@@ -321,9 +368,14 @@ class DnD_App:
             tree = ttk.Treeview(classTable, columns=list(df.columns), show="headings", height=20)
 
             # Add column headers
+            if spells:
+                wdth = 45
+            else:
+                wdth = 120
+
             for col in df.columns:
                 tree.heading(col, text=col)
-                tree.column(col, anchor="center", width=40)  # Limit to MAX_COLUMN_WIDTH
+                tree.column(col, anchor="center", width=wdth)  # Limit to MAX_COLUMN_WIDTH
 
             # Add rows to the Treeview
             for index, row in df.iterrows():

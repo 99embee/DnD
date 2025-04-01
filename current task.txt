@@ -8,10 +8,18 @@ The notebook style is the uniform style from now on.
 # add buttons to class, subclass, race, subrace, ... in the character sheet. 
 # They should open a top level window. 
 
-# display the class, race, subrace details in character creation. 
+# display the class, race, subrace details in character creation. - done
 
-# display the class table in one tab of a notebook format, another tab would be the starting details. 
+# display the class table in one tab of a notebook format, another tab would be the starting details. - done 
 
+-------------------
+------------
+-----
+# sorcerer, monk, fighter and paladin class table doesnt load. 
+# warlock spells are wrong - @filter
+-----
+------------
+-------------------
 
 # eventually create the item class with swords, armour, potions etc. 
 # on character creation when selecting starting equipment - open a 'shop' that references starting items
