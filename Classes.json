@@ -120,7 +120,12 @@
                     "Features",
                     "Infusions Known",
                     "Infused Items",
-                    "Cantrips Known"
+                    "Cantrips Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -146,16 +151,16 @@
                 ],
                 "features": {
                     "1": [
-                        "Optional Rule: Firearm Proficiency",
                         "Spellcasting",
-                        "Magical Tinkering"
+                        "Magical Tinkering",
+                        "Optional Rule: Firearm Proficiency"
                     ],
                     "2": [
                         "Infuse Item"
                     ],
                     "3": [
-                        "The Right Tool for the Job",
-                        "Artificer Specialist"
+                        "Artificer Specialist",
+                        "The Right Tool for the Job"
                     ],
                     "4": [
                         "Ability Score Improvement"
@@ -212,8 +217,8 @@
                 "rows": {
                     "1": [
                         0,
-                        0,
-                        2
+                        2,
+                        0
                     ],
                     "2": [
                         4,
@@ -237,78 +242,78 @@
                     ],
                     "6": [
                         6,
-                        3,
-                        2
+                        2,
+                        3
                     ],
                     "7": [
                         6,
-                        3,
-                        2
+                        2,
+                        3
                     ],
                     "8": [
                         6,
-                        3,
-                        2
+                        2,
+                        3
                     ],
                     "9": [
                         6,
-                        3,
-                        2
+                        2,
+                        3
                     ],
                     "10": [
                         8,
-                        4,
-                        3
+                        3,
+                        4
                     ],
                     "11": [
                         8,
-                        4,
-                        3
+                        3,
+                        4
                     ],
                     "12": [
                         8,
-                        4,
-                        3
+                        3,
+                        4
                     ],
                     "13": [
                         8,
-                        4,
-                        3
+                        3,
+                        4
                     ],
                     "14": [
                         10,
-                        5,
-                        4
+                        4,
+                        5
                     ],
                     "15": [
                         10,
-                        5,
-                        4
+                        4,
+                        5
                     ],
                     "16": [
                         10,
-                        5,
-                        4
+                        4,
+                        5
                     ],
                     "17": [
                         10,
-                        5,
-                        4
+                        4,
+                        5
                     ],
                     "18": [
                         12,
-                        6,
-                        4
+                        4,
+                        6
                     ],
                     "19": [
                         12,
-                        6,
-                        4
+                        4,
+                        6
                     ],
                     "20": [
                         12,
-                        6,
-                        4
+                        4,
+                        6
                     ]
                 },
                 "spells": {
@@ -1821,8 +1826,8 @@
                         "Path Feature"
                     ],
                     "7": [
-                        "Feral Instinct",
-                        "Instinctive Pounce"
+                        "Instinctive Pounce",
+                        "Feral Instinct"
                     ],
                     "8": [
                         "Ability Score Improvement"
@@ -4061,7 +4066,16 @@
                     "Proficiency Bonus",
                     "Features",
                     "Cantrips Known",
-                    "Spells Known"
+                    "Spells Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th",
+                    "6th",
+                    "7th",
+                    "8th",
+                    "9th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -4091,8 +4105,8 @@
                         "Spellcasting"
                     ],
                     "2": [
-                        "Jack of All Trades",
                         "Song of Rest (d6)",
+                        "Jack of All Trades",
                         "Magical Inspiration"
                     ],
                     "3": [
@@ -4104,8 +4118,8 @@
                         "Bardic Versatility"
                     ],
                     "5": [
-                        "Font of Inspiration",
-                        "Bardic Inspiration (d8)"
+                        "Bardic Inspiration (d8)",
+                        "Font of Inspiration"
                     ],
                     "6": [
                         "Countercharm",
@@ -4121,8 +4135,8 @@
                         "Song of Rest (d8)"
                     ],
                     "10": [
-                        "Magical Secrets",
                         "Expertise",
+                        "Magical Secrets",
                         "Bardic Inspiration (d10)"
                     ],
                     "11": [
@@ -4135,8 +4149,8 @@
                         "Song of Rest (d10)"
                     ],
                     "14": [
-                        "Bard College feature",
-                        "Magical Secrets"
+                        "Magical Secrets",
+                        "Bard College feature"
                     ],
                     "15": [
                         "Bardic Inspiration (d12)"
@@ -6384,7 +6398,16 @@
                     "Level",
                     "Proficiency Bonus",
                     "Features",
-                    "Cantrips Known"
+                    "Cantrips Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th",
+                    "6th",
+                    "7th",
+                    "8th",
+                    "9th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -6414,8 +6437,8 @@
                         "Spellcasting"
                     ],
                     "2": [
-                        "Divine Domain feature",
                         "Channel Divinity",
+                        "Divine Domain feature",
                         "Channel Divinity: Harness Divine Power"
                     ],
                     "3": [
@@ -6429,16 +6452,16 @@
                         "Destroy Undead (CR 1/2)"
                     ],
                     "6": [
-                        "Divine Domain feature",
-                        "Channel Divinity"
+                        "Channel Divinity",
+                        "Divine Domain feature"
                     ],
                     "7": [
                         "---"
                     ],
                     "8": [
+                        "Ability Score Improvement",
                         "Destroy Undead (CR 1)",
-                        "Divine Domain feature",
-                        "Ability Score Improvement"
+                        "Divine Domain feature"
                     ],
                     "9": [
                         "---"
@@ -11926,7 +11949,16 @@
                     "Level",
                     "Proficiency Bonus",
                     "Features",
-                    "Cantrips Known"
+                    "Cantrips Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th",
+                    "6th",
+                    "7th",
+                    "8th",
+                    "9th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -11952,21 +11984,21 @@
                 ],
                 "features": {
                     "1": [
-                        "Spellcasting",
-                        "Druidic"
+                        "Druidic",
+                        "Spellcasting"
                     ],
                     "2": [
-                        "Wild Shape",
+                        "Wild Companion",
                         "Druid Circle",
-                        "Wild Companion"
+                        "Wild Shape"
                     ],
                     "3": [
                         "---"
                     ],
                     "4": [
-                        "Wild Shape Improvement",
                         "Ability Score Improvement",
-                        "Cantrip Versatility"
+                        "Cantrip Versatility",
+                        "Wild Shape Improvement"
                     ],
                     "5": [
                         "---"
@@ -11978,8 +12010,8 @@
                         "---"
                     ],
                     "8": [
-                        "Wild Shape Improvement",
-                        "Ability Score Improvement"
+                        "Ability Score Improvement",
+                        "Wild Shape Improvement"
                     ],
                     "9": [
                         "---"
@@ -15297,8 +15329,8 @@
                         "Martial Archetype"
                     ],
                     "4": [
-                        "Martial Versatility",
-                        "Ability Score Improvement"
+                        "Ability Score Improvement",
+                        "Martial Versatility"
                     ],
                     "5": [
                         "Extra Attack"
@@ -18201,18 +18233,18 @@
                 ],
                 "features": {
                     "1": [
-                        "Unarmored Defense",
-                        "Martial Arts"
+                        "Martial Arts",
+                        "Unarmored Defense"
                     ],
                     "2": [
-                        "Ki",
+                        "Unarmored Movement",
                         "Dedicated Weapon",
-                        "Unarmored Movement"
+                        "Ki"
                     ],
                     "3": [
-                        "Monastic Tradition",
+                        "Deflect Missiles",
                         "Ki-Fueled Attack",
-                        "Deflect Missiles"
+                        "Monastic Tradition"
                     ],
                     "4": [
                         "Quickened Healing",
@@ -18220,13 +18252,13 @@
                         "Slow Fall"
                     ],
                     "5": [
+                        "Extra Attack",
                         "Focused Aim",
-                        "Stunning Strike",
-                        "Extra Attack"
+                        "Stunning Strike"
                     ],
                     "6": [
-                        "Ki-Empowered Strikes",
-                        "Monastic Tradition feature"
+                        "Monastic Tradition feature",
+                        "Ki-Empowered Strikes"
                     ],
                     "7": [
                         "Evasion",
@@ -18275,83 +18307,103 @@
                 "rows": {
                     "1": [
                         "1d4",
-                        0
+                        0,
+                        "0"
                     ],
                     "2": [
                         "1d4",
-                        2
+                        2,
+                        "+10"
                     ],
                     "3": [
                         "1d4",
-                        3
+                        3,
+                        "+10"
                     ],
                     "4": [
                         "1d4",
-                        4
+                        4,
+                        "+10"
                     ],
                     "5": [
                         "1d6",
-                        5
+                        5,
+                        "+10"
                     ],
                     "6": [
                         "1d6",
-                        6
+                        6,
+                        "+15"
                     ],
                     "7": [
                         "1d6",
-                        7
+                        7,
+                        "+15"
                     ],
                     "8": [
                         "1d6",
-                        8
+                        8,
+                        "+15"
                     ],
                     "9": [
                         "1d6",
-                        9
+                        9,
+                        "+15"
                     ],
                     "10": [
                         "1d6",
-                        10
+                        10,
+                        "+20"
                     ],
                     "11": [
                         "1d8",
-                        11
+                        11,
+                        "+20"
                     ],
                     "12": [
                         "1d8",
-                        12
+                        12,
+                        "+20"
                     ],
                     "13": [
                         "1d8",
-                        13
+                        13,
+                        "+20"
                     ],
                     "14": [
                         "1d8",
-                        14
+                        14,
+                        "+25"
                     ],
                     "15": [
                         "1d8",
-                        15
+                        15,
+                        "+25"
                     ],
                     "16": [
                         "1d8",
-                        16
+                        16,
+                        "+25"
                     ],
                     "17": [
                         "1d10",
-                        17
+                        17,
+                        "+25"
                     ],
                     "18": [
                         "1d10",
-                        18
+                        18,
+                        "+30"
                     ],
                     "19": [
                         "1d10",
-                        19
+                        19,
+                        "+30"
                     ],
                     "20": [
                         "1d10",
-                        20
+                        20,
+                        "+30"
                     ]
                 },
                 "spells": {}
@@ -20810,17 +20862,17 @@
                         "Divine Sense"
                     ],
                     "2": [
-                        "Divine Smite",
                         "Spellcasting",
-                        "Fighting Style"
+                        "Fighting Style",
+                        "Divine Smite"
                     ],
                     "3": [
-                        "Sacred Oath",
-                        "Divine Health"
+                        "Divine Health",
+                        "Sacred Oath"
                     ],
                     "4": [
-                        "Martial Versatility",
-                        "Ability Score Improvement"
+                        "Ability Score Improvement",
+                        "Martial Versatility"
                     ],
                     "5": [
                         "Extra Attack"
@@ -24461,7 +24513,12 @@
                     "Level",
                     "Proficiency Bonus",
                     "Features",
-                    "Spells Known"
+                    "Spells Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -24488,23 +24545,23 @@
                 "features": {
                     "1": [
                         "Deft Explorer",
+                        "Favored Enemy",
                         "Natural Explorer",
-                        "Favored Foe",
-                        "Favored Enemy"
+                        "Favored Foe"
                     ],
                     "2": [
-                        "Spellcasting Focus",
                         "Spellcasting",
+                        "Spellcasting Focus",
                         "Fighting Style"
                     ],
                     "3": [
-                        "Primal Awareness",
                         "Ranger Archetype",
+                        "Primal Awareness",
                         "Primeval Awareness"
                     ],
                     "4": [
-                        "Martial Versatility",
-                        "Ability Score Improvement"
+                        "Ability Score Improvement",
+                        "Martial Versatility"
                     ],
                     "5": [
                         "Extra Attack"
@@ -24517,8 +24574,8 @@
                         "Ranger Archetype feature"
                     ],
                     "8": [
-                        "Ability Score Improvement",
-                        "Land's Stride"
+                        "Land's Stride",
+                        "Ability Score Improvement"
                     ],
                     "9": [
                         "---"
@@ -24526,8 +24583,8 @@
                     "10": [
                         "Natural Explorer improvement",
                         "Deft Explorer Improvement",
-                        "Hide in Plain Sight",
-                        "Nature's Veil"
+                        "Nature's Veil",
+                        "Hide in Plain Sight"
                     ],
                     "11": [
                         "Ranger Archetype feature"
@@ -24539,8 +24596,8 @@
                         "---"
                     ],
                     "14": [
-                        "Vanish",
-                        "Favored Enemy improvement"
+                        "Favored Enemy improvement",
+                        "Vanish"
                     ],
                     "15": [
                         "Ranger Archetype feature"
@@ -27463,9 +27520,9 @@
                 ],
                 "features": {
                     "1": [
-                        "Sneak Attack",
                         "Expertise",
-                        "Thieves' Cant"
+                        "Thieves' Cant",
+                        "Sneak Attack"
                     ],
                     "2": [
                         "Cunning Action"
@@ -29650,7 +29707,18 @@
                     "Level",
                     "Proficiency Bonus",
                     "Features",
-                    "Sorcery Points"
+                    "Sorcery Points",
+                    "Cantrips Known",
+                    "Spells Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th",
+                    "6th",
+                    "7th",
+                    "8th",
+                    "9th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -29676,15 +29744,15 @@
                 ],
                 "features": {
                     "1": [
-                        "Spellcasting",
-                        "Sorcerous Origin"
+                        "Sorcerous Origin",
+                        "Spellcasting"
                     ],
                     "2": [
                         "Font of Magic"
                     ],
                     "3": [
-                        "Metamagic",
-                        "Metamagic Options"
+                        "Metamagic Options",
+                        "Metamagic"
                     ],
                     "4": [
                         "Ability Score Improvement",
@@ -29741,82 +29809,102 @@
                 },
                 "rows": {
                     "1": [
+                        0,
                         4,
                         2
                     ],
                     "2": [
+                        2,
                         4,
                         3
                     ],
                     "3": [
+                        3,
                         4,
                         4
                     ],
                     "4": [
+                        4,
                         5,
                         5
                     ],
                     "5": [
                         5,
+                        5,
                         6
                     ],
                     "6": [
+                        6,
                         5,
                         7
                     ],
                     "7": [
+                        7,
                         5,
                         8
                     ],
                     "8": [
+                        8,
                         5,
                         9
                     ],
                     "9": [
+                        9,
                         5,
                         10
                     ],
                     "10": [
+                        10,
                         6,
                         11
                     ],
                     "11": [
+                        11,
                         6,
                         12
                     ],
                     "12": [
+                        12,
                         6,
                         12
                     ],
                     "13": [
+                        13,
                         6,
                         13
                     ],
                     "14": [
+                        14,
                         6,
                         13
                     ],
                     "15": [
+                        15,
                         6,
                         14
                     ],
                     "16": [
+                        16,
                         6,
                         14
                     ],
                     "17": [
+                        17,
                         6,
                         15
                     ],
                     "18": [
+                        18,
                         6,
                         15
                     ],
                     "19": [
+                        19,
                         6,
                         15
                     ],
                     "20": [
+                        20,
                         6,
                         15
                     ]
@@ -33108,140 +33196,140 @@
                         2,
                         2,
                         1,
-                        "{@filter 1st|spells|level=1|class=Warlock}",
+                        "1st",
                         0
                     ],
                     "2": [
                         2,
                         3,
                         2,
-                        "{@filter 1st|spells|level=1|class=Warlock}",
+                        "1st",
                         2
                     ],
                     "3": [
                         2,
                         4,
                         2,
-                        "{@filter 2nd|spells|level=2|class=Warlock}",
+                        "2nd",
                         2
                     ],
                     "4": [
                         3,
                         5,
                         2,
-                        "{@filter 2nd|spells|level=2|class=Warlock}",
+                        "2nd",
                         2
                     ],
                     "5": [
                         3,
                         6,
                         2,
-                        "{@filter 3rd|spells|level=3|class=Warlock}",
+                        "3rd",
                         3
                     ],
                     "6": [
                         3,
                         7,
                         2,
-                        "{@filter 3rd|spells|level=3|class=Warlock}",
+                        "3rd",
                         3
                     ],
                     "7": [
                         3,
                         8,
                         2,
-                        "{@filter 4th|spells|level=4|class=Warlock}",
+                        "4th",
                         4
                     ],
                     "8": [
                         3,
                         9,
                         2,
-                        "{@filter 4th|spells|level=4|class=Warlock}",
+                        "4th",
                         4
                     ],
                     "9": [
                         3,
                         10,
                         2,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         5
                     ],
                     "10": [
                         4,
                         10,
                         2,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         5
                     ],
                     "11": [
                         4,
                         11,
                         3,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         5
                     ],
                     "12": [
                         4,
                         11,
                         3,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         6
                     ],
                     "13": [
                         4,
                         12,
                         3,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         6
                     ],
                     "14": [
                         4,
                         12,
                         3,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         6
                     ],
                     "15": [
                         4,
                         13,
                         3,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         7
                     ],
                     "16": [
                         4,
                         13,
                         3,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         7
                     ],
                     "17": [
                         4,
                         14,
                         4,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         7
                     ],
                     "18": [
                         4,
                         14,
                         4,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         8
                     ],
                     "19": [
                         4,
                         15,
                         4,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         8
                     ],
                     "20": [
                         4,
                         15,
                         4,
-                        "{@filter 5th|spells|level=5|class=Warlock}",
+                        "5th",
                         8
                     ]
                 },
@@ -36067,7 +36155,16 @@
                     "Level",
                     "Proficiency Bonus",
                     "Features",
-                    "Cantrips Known"
+                    "Cantrips Known",
+                    "1st",
+                    "2nd",
+                    "3rd",
+                    "4th",
+                    "5th",
+                    "6th",
+                    "7th",
+                    "8th",
+                    "9th"
                 ],
                 "proficiency bonuses": [
                     "+2",
@@ -36093,8 +36190,8 @@
                 ],
                 "features": {
                     "1": [
-                        "Arcane Recovery",
-                        "Spellcasting"
+                        "Spellcasting",
+                        "Arcane Recovery"
                     ],
                     "2": [
                         "Arcane Tradition"

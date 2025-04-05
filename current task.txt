@@ -19,6 +19,9 @@ The notebook style is the uniform style from now on.
 # warlock spells are wrong - @filter
 -----
 ------------
+warlock index issue. - might have to scrap sorcerer fix. index was used if there was multiple rows. 
+but for warlock the index will always be 0 (there is 1 'rows') so the data is always inserted into pos 0+1.
+this causes the list to be ordered incorrectly. 
 -------------------
 
 # eventually create the item class with swords, armour, potions etc. 

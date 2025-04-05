@@ -130,6 +130,7 @@ class DnD_App:
             lblTotals[x].config(text=total)
             lblRolls[x].config(text=rolls)
             cbxAbilities[x].set("None")
+            cbxAbilities[x].config(state="readonly")
             diceRolls[pos] = total
 
             def on_combobox_select(event, x=x, total=total):
@@ -226,6 +227,7 @@ class DnD_App:
                                 decoded_items.append(item["full"])  # Use the 'full' field if available
                             elif "proficiency" in item:
                                 decoded_items.append(item["proficiency"])  # Use the 'proficiency' field as fallback
+                            
                         elif isinstance(item, str):
                             # Check if the string matches the @item pattern
                             if re.match(r'\{@item .*?\}', item):
@@ -272,7 +274,15 @@ class DnD_App:
                 decoded_armour = decode_items(starting_armour)
                 lblClassStartArmour = tk.Label(classDetails, text=f"Starting Armour: {', '.join(decoded_armour)}", bg='SteelBlue4', font=('Helvetica', 12))
                 lblClassStartArmour.grid(row=3, column=0, padx=10, pady=5, sticky='w')
+            if starting_proficiencies.get('tools'):
+                starting_tools = class_data['startingProficiencies']['tools'][0]
+                print(starting_tools)
+                starting_tools = re.sub(r'\{@item (.*?)\|.*?\}', r'\1', starting_tools)
+                # decoded_tools = decode_items(starting_tools)
+                lblClassStartTools = tk.Label(classDetails, text=f"Starting Tools: {starting_tools}", bg='SteelBlue4', font=('Helvetica', 12))
+                lblClassStartTools.grid(row=3, column=0, padx=10, pady=5, sticky='w')
             
+
             starting_weapons = class_data['startingProficiencies']['weapons']
             decoded_weapons = decode_items(starting_weapons)
             lblClassStartWeapons = tk.Label(classDetails, text=f"Starting Weapons: {', '.join(decoded_weapons)}", bg='SteelBlue4', font=('Helvetica', 12))
@@ -310,7 +320,6 @@ class DnD_App:
             rows = data.get('rows', [])
             spells = data.get('spells',[])
 
-            # spellHeaders = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th']
             if spells:
                 max_spell_count = max(len(spell_list) for spell_list in spells.values())  # Find the maximum length of the lists
                 spellHeaders = [f"{i}th" if i > 3 else f"{i}{['st', 'nd', 'rd'][i-1]}" for i in range(1, max_spell_count + 1)]
@@ -324,11 +333,15 @@ class DnD_App:
             for value in profBons:
                 details['Proficiency Bonus'].append(value)
 
-            for level in rows.keys():
-                details['Level'].append(level)
-                rowData = rows[level]
-                for column, value in zip(classHeaders, rowData):
-                    details[column].append(value)
+            if rows:
+                for level in rows.keys():
+                    details['Level'].append(level)
+                    rowData = rows[level]
+                    for column, value in zip(classHeaders, rowData):
+                        details[column].append(value)
+            else:
+                for level in features.keys():
+                    details['Level'].append(level)
 
             for values in features.values():
                 details['Features'].append(values)
@@ -354,7 +367,7 @@ class DnD_App:
                             details[spLevel_with_suffix].append(value)
 
             # print()
-            # print(details)
+            print(details)
             # print
 
             df= pd.DataFrame(details)
@@ -393,8 +406,6 @@ class DnD_App:
 
             # Pack the Treeview
             tree.pack(fill="y", expand=True)
-
-           
 
         # Background Tab
         backgroundTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')
@@ -551,7 +562,7 @@ class DnD_App:
             lblTotals[x].grid(row=4, column=x, padx=10, pady=5, sticky='')
             lblRolls[x] = tk.Label(diceAbilitiesTab, text=0, bg='SteelBlue4', font=('Helvetica', 12))
             lblRolls[x].grid(row=5, column=x, padx=10, pady=5, sticky='')
-            cbxAbilities[x] = ttk.Combobox(diceAbilitiesTab, state='readonly', values=availableAbilities, width=max_width, font=('Helvetica', 12))
+            cbxAbilities[x] = ttk.Combobox(diceAbilitiesTab, state='disabled', values=availableAbilities, width=max_width, font=('Helvetica', 12))
             cbxAbilities[x].grid(row=6, column=x, padx=1, pady=1,  sticky='')
 
             def on_combobox_select(event, x=x):

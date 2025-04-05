@@ -62,25 +62,28 @@ def getClassTableGroups(cls):
     headers = ['Level', 'Proficiency Bonus', 'Features']
     rows = {}
     spells = {}
+    
+    for index, table in enumerate(cls.get('classTableGroups', [])):
+        # if cls['name'] == 'Warlock': 
+        #     print(cls['name'], ", ",len(cls['classTableGroups']), ", index:",index)
 
-    for table in cls.get('classTableGroups', []):
         col_labels = table.get('colLabels', [])
+       
         # Use re.sub to replace @filter text in colLabels
         col_labels = [re.sub(r'\{@filter (.*?)\|.*?\}', r'\1', label) for label in col_labels]
         # print(f"Processing class: {cls['name']}")
-        if len(headers) == 3:  # Extend headers only once
+        if len(headers) >= 3:  # Extend headers only once
             headers.extend(col_labels)
 
-        # print(f"table rows {table.get('rows')}")
-        # print("\n")
-
+        monkMovement = {1:'0', 2:'+10',3:'+10',4:'+10',5:'+10', 6:'+15',7:'+15',8:'+15',9:'+15', 10:'+20',11:'+20',12:'+20',13:'+20', 14:'+25',15:'+25',16:'+25',17:'+25', 18:'+30',19:'+30',20:'+30'}
+        
         if table.get('rows', []):
             for i, row in enumerate(table['rows']):
                 level = i + 1
-                rows[level] = []
+                if level not in rows:
+                    rows[level] = []
                 for item in row:
                     if isinstance(item, dict):
-                        # print(f"dict item {item}")
                         if item.get('type') == 'bonus':
                             rows[level].append(f"+{item['value']}")
                         elif item.get('type') == 'dice':
@@ -91,11 +94,26 @@ def getClassTableGroups(cls):
                                 # print(f"{number}d{faces}")
                                 rows[level].append(f"{number}d{faces}")
                     else:
-                        rows[level].append(item)
-                # Ensure bonus values are added after the items
-                # for item in row:
-                #     if isinstance(item, dict) and item.get('type') == 'bonus':
-                #         rows[level].append(f"+{item['value']}")
+                        if isinstance(item, str) and '@filter' in item:
+                            item = re.sub(r'\{@filter (.*?)\|.*?\}', r'\1', item)
+                        
+                        if level in rows and len(rows[level]) > 0:
+                            index = len(rows[level]) - 1
+                            print(f"{cls['name']}:, len(row level): {len(rows[level])} index: {index}")
+                            print(f"rows[level]: {rows[level]} item: {item}")
+                        else:
+                            index = -1
+                            print(f"else {index}")
+                        if len(rows[level]) <= index + 1:
+                            # print(f"rows[level]: {rows[level]} item: {item}")
+                            rows[level].append(item)  # Append if the index is out of bounds
+                        else:
+                            rows[level].insert(index + 1, item)
+        
+
+                if cls['name'] == 'Monk':
+                    if level in monkMovement:
+                        rows[level].insert(2, monkMovement[level])
 
         if table.get('rowsSpellProgression', []):
             for i, spell_row in enumerate(table.get('rowsSpellProgression', [])):
@@ -103,6 +121,9 @@ def getClassTableGroups(cls):
                 spells[level] = [0] * (len(col_labels))  # Initialize with zeros
                 for j, item in enumerate(spell_row):
                     spells[level][j] = item
+
+    if cls['name'] in ['Sorcerer', 'Warlock']:
+        print(cls['name'], ": ",rows)
 
     # Convert sets to lists
     rows = {level: list(features) for level, features in rows.items()}
