@@ -1,5 +1,7 @@
 import json
 import Character
+import Backgrounds
+import Deity
 import Race
 import Class
 import random
@@ -15,7 +17,7 @@ class DnD_App:
         self.root.title("DnD Game")
         self.root.configure(bg='firebrick')
         self.root.minsize(800, 600)
-
+                
         self.startFrame = None  # Store a reference to the start frame
         self.startGUI()
 
@@ -169,20 +171,25 @@ class DnD_App:
         chrDetails = {}
         chosenAbilities = []
         notebook = ttk.Notebook(createChar)
-        notebook.pack(expand=True, fill='both')
+        notebook.grid(row=1, column=0, padx=10, pady=5, sticky='nsew', columnspan=8)
 
         # Class Tab
         nameClassTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')
         notebook.add(nameClassTab, text='Class')
 
-        details = [('What is your character\'s name?', 3), ('What is your character\'s class?', 8)]
+        # details = [('What is your character\'s name?', 3), ('What is your character\'s class?', 8)]
         entryDetails = {}
-        for i, (question, pos) in enumerate(details):
-            lblDetails = tk.Label(nameClassTab, text=question, bg='SteelBlue4', font=('Helvetica', 12))
-            lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
-            entryDetails[pos] = tk.Entry(nameClassTab, bg='SteelBlue4', font=('Helvetica', 12))
-            entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
         
+        lblDetails = tk.Label(createChar, text='What is your character\'s name?', bg='SteelBlue4', font=('Helvetica', 12))
+        lblDetails.grid(row=0, column=0, padx=10, pady=5, sticky='w')    
+        entryDetails[3] = tk.Entry(createChar, bg='SteelBlue4', font=('Helvetica', 12))
+        entryDetails[3].grid(row=0, column=1, padx=10, pady=5, sticky='w')
+        
+        lblDetails = tk.Label(nameClassTab, text='What is your character\'s class?', bg='SteelBlue4', font=('Helvetica', 12))
+        lblDetails.grid(row=1, column=0, padx=10, pady=5, sticky='w')  
+        entryDetails[8] = tk.Entry(nameClassTab, bg='SteelBlue4', font=('Helvetica', 12))
+        entryDetails[8].grid(row=1, column=1, padx=10, pady=5, sticky='w')
+
         classVar = tk.StringVar()
         classMenu = ttk.Combobox(nameClassTab, textvariable=classVar, state='readonly', font=('Helvetica', 12))
         classMenu.grid(row=1, column=1, padx=10, pady=5, sticky='w')
@@ -410,6 +417,35 @@ class DnD_App:
         # Background Tab
         backgroundTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')
         notebook.add(backgroundTab, text='Background')
+
+        details = ['What is your character\'s background?','What deity do you follow?', 'What is your character\'s alignment?']
+        for i, question in enumerate(details):
+            lblDetails = tk.Label(backgroundTab, text=question, bg='SteelBlue4', font=('Helvetica', 12))
+            lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
+
+        backgroundVar = tk.StringVar()
+        backgroundMenu = ttk.Combobox(backgroundTab, textvariable=backgroundVar, state='readonly', font=('Helvetica', 12))
+        backgroundMenu.grid(row=0, column=1, padx=10, pady=5, sticky='w')
+        backgrounds = Backgrounds.load_backgrounds()
+        print(backgrounds)
+        backgroundMenu['values'] = backgrounds
+        # backgroundMenu.bind("<<ComboboxSelected>>", displayClassDetails)
+        # backgroundMenu.set('')  # Clear the current selection
+
+        deityVar = tk.StringVar()
+        deityMenu = ttk.Combobox(backgroundTab, textvariable=deityVar, state='readonly', font=('Helvetica', 12))
+        deityMenu.grid(row=1, column=1, padx=10, pady=5, sticky='w')
+        deities = Deity.load_deities()
+        deityMenu['values'] = deities
+
+
+        alignmentVar = tk.StringVar()
+        alignmentMenu = ttk.Combobox(backgroundTab, textvariable=alignmentVar, state='readonly', font=('Helvetica', 12))
+        alignmentMenu.grid(row=2, column=1, padx=10, pady=5, sticky='w')
+        alignments = ['Lawful Good', 'Neutral Good', 'Chaotic Good', 'Lawful Neutral', 'True Neutral', 'Chaotic Neutral', 'Lawful Evil', 'Neutral Evil', 'Chaotic Evil']
+        alignmentMenu['values'] = alignments
+        # alignmentMenu.set('')  # Clear the current selection
+
 
         # Race and Subrace Tab
         raceSubraceTab = tk.Frame(notebook, bg='SteelBlue4', bd=2, relief='solid')

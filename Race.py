@@ -1,5 +1,4 @@
 import json
-import os
 
 class CharacterRace:
     def __init__(self, name, subraces, size, age, speed, ability, languages, features, source, page):
