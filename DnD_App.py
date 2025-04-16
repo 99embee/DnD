@@ -44,13 +44,16 @@ class DnD_App:
         lblTitle.grid(row=0, column=0, padx=10, pady=10, sticky='n')
         btnCreate = tk.Button(self.startFrame, text="Create Character", bg='SteelBlue4', font=('Helvetica', 12), command=lambda: self.designCharacter())
         btnCreate.grid(row=1, column=0, padx=10, pady=10, sticky='n')
-        btnLoad = tk.Button(self.startFrame, text="Load Character", bg='SteelBlue4', font=('Helvetica', 12), command=lambda: self.loadCharacter())
+        btnLoad = tk.Button(self.startFrame, text="Load Character", bg='SteelBlue4', font=('Helvetica', 12), command=lambda: self.loadCharacter('','',''))
         btnLoad.grid(row=2, column=0, padx=10, pady=10, sticky='n')
         btnExit = tk.Button(self.startFrame, text="Exit", bg='SteelBlue4', font=('Helvetica', 12), command=self.root.quit)
         btnExit.grid(row=3, column=0, padx=10, pady=10, sticky='n')
+        
+        btnDev = tk.Button(self.startFrame, text="Dev Load", bg='SteelBlue4', font=('Helvetica', 12), command=lambda: self.loadCharacter('test Barb', 'Human', 'Barbarian'))
+        btnDev.grid(row=4, column=0, padx=10, pady=10, sticky='n')
 
     def createGUI(self, plyr):
-        print(plyr)
+        # print(plyr)
             
         attribute = plyr['Attributes']
         abilities = attribute['Abilities']
@@ -113,6 +116,53 @@ class DnD_App:
 
         mainFrame = tk.Frame(self.root, width=600, height=600, bg='light grey', bd=2, relief='solid')
         mainFrame.pack(padx=20, pady=20, side=tk.RIGHT)
+
+        self.txtOutput = tk.Text(mainFrame, wrap=tk.WORD, bg='light grey', font=('Helvetica', 8, 'bold'))
+        self.txtOutput.grid(padx=10, pady=10, row=0, column=0, sticky='nsew')
+        self.txtOutput.insert(tk.END,f"Welcome, {attribute['Name']}! \n\nYour character is ready to play.\n\nHave fun! \n")
+        
+        inputFrame = tk.Frame(mainFrame, bg='red', relief='solid')
+        inputFrame.grid(padx=10, pady=10, sticky='ew', row=1, column=0)
+        # inputFrame.grid_rowconfigure(0, weight=1)
+        # inputFrame.grid_columnconfigure(0, weight=1)
+
+        self.txtInput = tk.Text(inputFrame, wrap=tk.WORD, bg='light blue', font=('Helvetica', 8, 'bold'))
+        self.txtInput.grid( padx=5, pady=5, sticky='ew', row=0, column=0)
+
+        btnInput = tk.Button(inputFrame, text="Send", bg='SteelBlue4', font=('Helvetica', 8), command=lambda: self.IOText(self.txtInput.get('1.0',tk.END), "black"))
+        btnInput.grid(padx=5, pady=5, sticky='ew', row=0, column=1)
+        mainFrame.grid_rowconfigure(0, weight=1)
+
+        # scrollbar = ttk.Scrollbar(mainFrame, orient=tk.VERTICAL, command=self.txtOutput.yview)
+        # scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        # self.txtOutput.configure(yscrollcommand=scrollbar.set)
+        self.txtOutput.config(state=tk.DISABLED)
+
+    def IOText(self, text, colour):
+        self.txtOutput.config(state=tk.NORMAL)
+        self.txtOutput.insert(tk.END,"\n"+ text + "\n", colour)
+        self.txtOutput.see(tk.END)
+        self.txtOutput.config(state=tk.DISABLED)
+        self.txtInput.delete('1.0',tk.END)  # Clear the input field
+
+        self.txtOutput.tag_configure("blue", foreground="blue")  # Configure the tag for blue text
+        self.txtOutput.tag_configure("red", foreground="red")  # Configure the tag for red text
+        self.txtOutput.tag_configure("green", foreground="green")  # Configure the tag for green text
+        self.txtOutput.tag_configure("yellow", foreground="yellow")  # Configure the tag for yellow text
+        self.txtOutput.tag_configure("purple", foreground="purple")  # Configure the tag for purple text
+        self.txtOutput.tag_configure("orange", foreground="orange")  # Configure the tag for orange text
+        self.txtOutput.tag_configure("black", foreground="black")  # Configure the tag for black text
+        self.txtOutput.tag_configure("white", foreground="white")  # Configure the tag for white text
+        
+        self.reader(text)
+    
+    def reader(self, word):
+        word = word.strip().lower()
+        if word == 'fight':
+            print("fight")
+            self.battle(self.plyr)
+        
+
 
     def abilityRolls(self, lblAbilityScores, lblTotals, lblRolls, cbxAbilities, appliedRaceBonuses, appliedSubraceBonuses):
         abilities = [('Strength', 10), ('Dexterity', 11), ('Constitution', 12), ('Intelligence', 13), ('Wisdom', 14), ('Charisma', 15)]
@@ -693,38 +743,22 @@ class DnD_App:
                 self.startGUI()
         return plyr
 
-    def loadCharacter(self):
+    def loadCharacter(self, name, race, class_name):
         loadChar = tk.Toplevel(self.root, bg='firebrick')
         loadChar.title("Load your character")
-
-        details = [('What is your character\'s name?', 3), ('What is your character\'s race?', 6), ('What is your character\'s class?', 7)]
         
-        entryDetails = {}
-        for i, (question, pos) in enumerate(details):
-            lblDetails = tk.Label(loadChar, text=question, bg='SteelBlue4', font=('Helvetica', 12))
-            lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
-            if pos == 3:
-                entryDetails[pos] = tk.Entry(loadChar, bg='SteelBlue4', font=('Helvetica', 12))
-                entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
-            else:
-                entryDetails[pos] = ttk.Combobox(loadChar, state='readonly', font=('Helvetica', 12))
-                entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
-
-        race_classes = Race.load_races()
-        class_classes = Class.load_classes()
-
-        entryDetails[6]['values'] = race_classes
-        entryDetails[7]['values'] = class_classes
-
-        def searchCharacter():
-            name = entryDetails[3].get()
-            race = entryDetails[6].get()
-            char_class = entryDetails[7].get()
-
+        def searchCharacter(name, race, char_class):
+            
+            if race == "":
+                name = entryDetails[3].get()
+                race = entryDetails[6].get()
+                char_class = entryDetails[7].get()
+            
             player = Character.Character.load(name, race, char_class)
+            
             if player:
                 # print(player)
-                plyr = {
+                self.plyr = {
                     'Attributes': {
                         'ID': player['Attributes']['ID'],
                         'Name': player['Attributes']['Name'],
@@ -751,15 +785,40 @@ class DnD_App:
                 }
                 loadChar.destroy()
                 self.startFrame.destroy()  # Destroy the start frame
-                self.createGUI(plyr)
+                self.createGUI(self.plyr)
             else:
                 messagebox.showerror("Error", "Character does not exist.")
                 loadChar.destroy()
                 self.startGUI()
+        
+        if not name:
+        
+            details = [('What is your character\'s name?', 3), ('What is your character\'s race?', 6), ('What is your character\'s class?', 7)]
+            
+            entryDetails = {}
+            for i, (question, pos) in enumerate(details):
+                lblDetails = tk.Label(loadChar, text=question, bg='SteelBlue4', font=('Helvetica', 12))
+                lblDetails.grid(row=i, column=0, padx=10, pady=5, sticky='w')
+                if pos == 3:
+                    entryDetails[pos] = tk.Entry(loadChar, bg='SteelBlue4', font=('Helvetica', 12))
+                    entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
+                else:
+                    entryDetails[pos] = ttk.Combobox(loadChar, state='readonly', font=('Helvetica', 12))
+                    entryDetails[pos].grid(row=i, column=1, padx=10, pady=5, sticky='w')
 
-        tk.Button(loadChar, text='Search', command=searchCharacter, bg='SteelBlue4', font=('Helvetica', 12)).grid(row=len(details), column=0, columnspan=2, padx=10, pady=10, sticky='w')
+            race_classes = Race.load_races()
+            class_classes = Class.load_classes()
 
+            entryDetails[6]['values'] = race_classes
+            entryDetails[7]['values'] = class_classes
+
+            tk.Button(loadChar, text='Search', command=lambda: searchCharacter('','',''), bg='SteelBlue4', font=('Helvetica', 12)).grid(row=len(details), column=0, columnspan=2, padx=10, pady=10, sticky='w')
+
+        else:
+            searchCharacter(name, race, class_name)  
+                
     def battle(self, plyr):
+        print("battle start")
         mob = Character.Character(0, 'Mob', 'Goblin', 1, 0, 'Goblin', 'Warrior', self.rollDice("1d8", "")[0], self.rollDice("3d6", "")[0], self.rollDice("3d6", "")[0], self.rollDice("3d6", "")[0], self.rollDice("3d6", "")[0], self.rollDice("3d6", "")[0], self.rollDice("3d6", "")[0])
         if mob.checkUnique():
             mob = mob.save()
