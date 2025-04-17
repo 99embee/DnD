@@ -118,7 +118,9 @@
                 "Level": 1,
                 "Experience": 0,
                 "Race": "Goblin",
+                "Subrace": "None",
                 "Class": "Warrior",
+                "Subclass": "None",              
                 "Health": 8,
                 "AC": 10,
                 "Size": "Medium",
@@ -208,7 +210,9 @@
                     "Attack Dice": "1d6"
                 },
                 "Weapons": [],
-                "Equipped Armour": {},
+                "Equipped Armour": {
+
+                },
                 "Armour": [],
                 "Items": []
             }
