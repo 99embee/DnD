@@ -2,6 +2,9 @@ TO DO:
 
 #added text fields in the GUI. starting adding keywords that call functions. 
 
+#I could use an ai to extract the keywords from a user's input. 
+then feed it into a text generating ai model to describe the actions. 
+
 
 # finish redesining the character creation window. 
 The notebook style is the uniform style from now on. 

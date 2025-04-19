@@ -10,7 +10,8 @@ from tkinter import ttk
 from tkinter import messagebox
 import re
 import pandas as pd
-from transformers import pipeline
+# from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
 class DnD_App:
     def __init__(self, root):
@@ -22,11 +23,29 @@ class DnD_App:
         self.party = []
         self.mobs = []
 
-        self.dm_ai = pipeline("text-generation", model="gpt2")  # Replace "gpt2" with your desired model
-        self.promptDefault = "You are a Dungeons and Dragons Dungeon Master. The setting is an epic fantasy world. Narrate the following event: "
+        # Load GPT-NeoX model
+        # tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neox-20b")
+        # model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-neox-20b")
 
+        # print("test")
+        # Load GPT-J model
+        # self.tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B")
+        # self.model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-j-6B")
+
+        self.tokenizer = AutoTokenizer.from_pretrained("gpt2")
+        self.model = AutoModelForCausalLM.from_pretrained("gpt2")
+
+        # self.dm_ai = pipeline("text-generation", model="gpt2")  # Replace "gpt2" with your desired model
+        self.promptDefault = "You are a Dungeons and Dragons Dungeon Master. The setting is an epic fantasy world. Narrate the following event: "
+        print("test")
         self.startFrame = None  # Store a reference to the start frame
         self.startGUI()
+
+    def generate_story(self, prompt, max_length=200):
+        inputs = self.tokenizer(prompt, return_tensors="pt")
+        outputs = self.model.generate(inputs["input_ids"], max_length=max_length, temperature=0.7, top_p=0.9)
+        return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+   
 
     def generate_dm_response(self, prompt, max_length=150):
         """
@@ -891,7 +910,8 @@ class DnD_App:
             # "Describe the scene and the mob's demeanor."
         )
         print(prompt)
-        narration = self.generate_dm_response(prompt)
+        # narration = self.generate_dm_response(prompt)
+        narration = self.generate_story(prompt)
         
         print(narration)
         self.IOText(narration, "black")
